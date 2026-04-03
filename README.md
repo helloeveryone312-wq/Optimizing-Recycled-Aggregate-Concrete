@@ -11,7 +11,7 @@ Modeling Approach: The models use a train-test split (80-20) to measure the accu
 - The following three models are evaluated on a train-test split dataset, where 8/9 of the numeric columns in the dataset are used, which excludes compressive strength:
 
   - Linear Regression:
-    - The parameters of linear regression involve an intercept (A) and a slope (B). A simple linear regression equation is often written as           such: y=Ax+B. The intercept represents the value of the independent variable as the dependent variable approaches 0. The slope represents       the average change of the dependent variable as the independent variable changes. Lets assume y<sub>1 is the predicted value of the dependent variable while y<sub>2 is the actual value of the dependent variable.
+    - The parameters of linear regression involve an intercept (A) and a slope (B). A simple linear regression equation is often written as           such: y=Ax+B. The intercept represents the value of the independent variable as the dependent variable approaches 0. The slope represents       the average change of the dependent variable as the independent variable changes. Lets assume y<sub>1 </sub>is the predicted value of the dependent variable while y<sub>2 </sub>is the actual value of the dependent variable.
     - give parameters, then reference figure in figure folder (ex. As seen in Fig. 1 in the figures folder, the following can be deduced, key         output results of code (r^2, mean error), finally put limitations
 
   - Gradient Boosting:
