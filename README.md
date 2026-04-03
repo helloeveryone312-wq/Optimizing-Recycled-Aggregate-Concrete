@@ -8,7 +8,7 @@ Dataset: The models are trained based on the following dataset: Yeh, I. (1998). 
 
 Modeling Approach: The models use a train-test split (80-20) to measure the accuracy and reliability of the model. Three models are used: linear regression, gradient boosting, and random forest.
 
-- The following three models are evaluated on a train-test split dataset, where 8/9 of the numeric columns in the dataset are used, which excludes compressive strength:
+- Note that 8/9 of the numeric columns in the dataset are used in the train-test split, which excludes compressive strength, and a solid line over a variable, such as ȳ, indicates average value:
 
   - Linear Regression:
     - The parameters of linear regression involve an intercept (A) and a slope (B). A simple linear regression equation is often written as such: y=Ax+B. The intercept represents the value of the independent variable as the dependent variable approaches 0. The slope represents the average change of the dependent variable as the independent variable changes.
@@ -20,7 +20,7 @@ Modeling Approach: The models use a train-test split (80-20) to measure the accu
     - The first group consists of the boosting parameters. These include parameters such as the learning rate and n_estimators, which affect the contribution and number of boosting stages (defined as a "tree").
     - The second group of parameters relate specifically to the boosting stages. These parameters include max_depth, the limit to the number of nodes in a single boosting stage; min_samples_split, the minimum number of sample required to split an internal node (higher values prevent overfitting); min_samples_leaf, the minimum number of samples required to be contained within a node; and max_leaf_nodes, limiting the total number of terminal nodes. Nodes refer to decision points within individual "trees" to predict and correct mistakes.
     - The final group consist of regularization parameters, controlling variance. These parameters include subsample, the fraction of training samples used for fitting each boosting stage, and max_features, the number of features considered in each boosting stage.
-    - For calculating R^2 and MAE, let's assume y<sub>m </sub>is the weight for each model, h<sub>m </sub>is the output of the mth model y<sub>2 </sub>is the actual value of the dependent variable. Then, R^2 = 1 - ( Σ (y<sub>2</sub> - F(x))² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ), where F(x) = Σ γ<sub>m</sub> h<sub>m</sub>(x) Note that at the top of the sigma notation is n and at the bottom is i=1, where n is the total number of observations and i=1 indicates the first observation.
+    - For calculating R^2 and MAE, let's assume y<sub>m </sub>is the weight for each model, h<sub>m </sub>is the output of the mth model y<sub>2 </sub>is the actual value of the dependent variable. Then, R^2 = 1 - ( Σ (y<sub>2</sub> - F(x))² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ), where F(x) = Σ γ<sub>m</sub> h<sub>m</sub>(x) and MAE = (1 / n) Σ |y<sub>2</sub> - F(x)|. Note that at the top of the sigma notation is n and at the bottom is i=1, where n is the total number of observations and i=1 indicates the first observation.
     - give parameters, then reference figure in figure folder (ex. As seen in Fig. 1 in the figures folder, the following can be deduced, key         output results of code (r^2, mean error), finally put limitations
   
   - Random Forest:
