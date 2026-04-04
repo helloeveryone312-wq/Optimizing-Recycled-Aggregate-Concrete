@@ -38,4 +38,4 @@ How to run models:
 2. When running step 1, make sure you have a dedicated location in Google Drive that the notebook can detect the CSV data from. This can be set in the DATA_DIR function.
 3. Continue running the notebook in sequence and read the comments for clarifications
 4. In step 8, replace the placeholder values with the desired CO<sub>2 </sub>and cost values based on research (you can repeat this step for Notebook 1).
-5. Open eco_concrete_stength_notebook2 and repeat the same steps. BASE_DIR is set up similarly to DATA_DIR, but will instead receive figures and outputs yielded by the notebook.
+5. Open eco_concrete_stength_notebook2 and repeat the same steps. BASE_DIR is set up similarly to DATA_DIR, but will instead receive figures and outputs yielded by Notebook 2.
