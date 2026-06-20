@@ -34,8 +34,22 @@ One of the three models is selected based on the R^2 value. Before this, outlier
 
 How to run models:
 
-1. Open eco_concrete_strength_notebook1 (Notebook 1) and run the setup code to install dependencies
-2. When running step 1, make sure you have a dedicated location in Google Drive that the notebook can detect the CSV data from. This can be set in the DATA_DIR function.
-3. Continue running the notebook in sequence and read the comments for clarifications
-4. In step 8, replace the placeholder values with the desired CO<sub>2 </sub>and cost values based on research (you can repeat this step for Notebook 1).
-5. Open eco_concrete_stength_notebook2 and repeat the same steps. BASE_DIR is set up similarly to DATA_DIR, but will instead receive figures and outputs yielded by Notebook 2.
+Notebook 1
+1. Open eco_concrete_strength_notebook1 and run the setup code to install dependencies (located above step 1).
+2. Edit the DATA_DIR location to the desired CSV data in a Google Drive location located in step 1.
+    - Refer to comments for clarity within the notebook.
+3. Continue running the notebook in sequence and read the comments for clarification.
+4. Replace the placeholder values with the desired CO<sub>2 </sub>and cost values based on research in step 8
+    - Rename the feature map if using different variables.
+    - Refer to comments for units
+5. (Optional) Edit the RF (random forest) parameters, then rerun the notebook to optimize the figure and results.
+
+Notebook 2
+1. Open eco_concrete_stength_notebook2 and install dependencies.
+2. Edit the DATA_DIR and BASE_DIR locations, and set DATA_DIR based on which option is chosen, as listed in step 1.
+    - BASE_DIR is set up similarly to DATA_DIR, but will instead receive figures and outputs yielded by Notebook 2 for publication usage.
+3. Continue running the notebook in sequence and read the comments for clarification.
+4. Replace the placeholder values with the desired CO<sub>2 </sub>and cost values based on research in step 8
+    - Rename the feature map if using different variables.
+    - Refer to comments for units
+5. (Optional) Edit the GBR (gradient boosting regressor) or RF parameters, then rerun the notebook to optimize the figure and results.
