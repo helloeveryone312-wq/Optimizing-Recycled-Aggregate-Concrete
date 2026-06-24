@@ -8,7 +8,7 @@
 - Yeh, I. (1998). Concrete Compressive Strength [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5PK67.
   - Includes cement, blast furnace slag, fly ash, water, superplasticizer, coarse aggregate, fine aggregate, and age as features
   - Includes concrete compressive strength as a target value
-  - Units are kg/m^3, with the exception of age and concrete compressive strength, which are listed as "day" and "MPa."
+  - Units are kg/m^3, except for age and concrete compressive strength, which are listed as "day" and "MPa."
 
 
 **Modeling Approach** -> The notebooks clean up the given dataset and use a train-test split (80-20) to measure the accuracy and reliability of the model. Linear regression serves as a baseline model for editing other machine learning models. A total of three models are analyzed:
