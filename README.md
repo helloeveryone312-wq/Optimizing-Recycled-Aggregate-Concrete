@@ -1,6 +1,6 @@
 # Project Description
 
-**Goals** -> This journal aims to optimize the mechanical properties and environmental/economic benefits of concrete through machine learning models. Based on the listed datasets, the machine learning models identify variables that affect the mechanical properties of concrete, including, but not limited to, varying levels of ground granulated blast-furnace slag, fly ash, age, and cement. By creating these models, future research can be conducted on predicted mixtures that have both sufficient compressive strength and environmental/economic benefits for regular use.
+**Goals** -> This journal aims to optimize the mechanical properties and environmental/economic benefits of concrete through machine learning models. Based on the listed datasets, the machine learning models identify the importance of variables that affect the mechanical properties of concrete, including, but not limited to, varying levels of ground granulated blast-furnace slag, fly ash, age, and cement. By creating these models, future research can be conducted on predicted/new mixtures that have both sufficient compressive strength and environmental/economic benefits for regular use.
 
 
 **Dataset** -> The models are trained based on the following datasets:
@@ -61,6 +61,7 @@ One of the three models is selected based on the R^2 value. Before this, outlier
     - n_estimators: affects the number of boosting stages (defined as a "tree").
     - max_depth: defines the max number of splits, and consequently the complexity, of each tree.
     - learning_rate: defines the contribution of each tree.
+    - All other variables are unchanged and set to default.
   - Variable significance
     - n_estimators minimizes model error by increasing the number of decision trees.
     - max_depth allows for complex data interaction and can be increased if learning_rate is low and n_estimators is too high.
@@ -75,6 +76,22 @@ One of the three models is selected based on the R^2 value. Before this, outlier
       - A large number of boosting stages focus the model on outliers.
       - learning_rate and max_depth cause overfitting at high values.
     - Similar to random forest, gradient boosting models cannot extrapolate and are computationally expensive.
+
+
+**Results** -> The results of this journal yielded a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD) and CO₂ (kg/m^3). Future studies can utilize the notebooks and results of this study to guide real-world testing and application in construction.
+
+
+**Figure Overview** -> This section will briefly describe the "figures" section of this GitHub (note that gradient boosting was considered the best model, and thus is used in all the figures):
+
+- feature_importance_GradientBoosting_tuned.png
+  - Provides a visualization for the given CSV file: "permutation_importance_GradientBoosting_tuned.csv".
+  - Defines the importance of each feature in determining concrete compressive strength based on the best model.
+- pred_vs_actual_GradientBoosting_tuned.png
+  - Provides a graph representing the prediction accuracy of the best model regarding concrete compressive strength.
+  - Shows a reasonable level of accuracy for determining feature importance
+- tradeoff_strength_vs_co2_proxy.png + tradeoff_strength_vs_cost_proxy.png:
+  - These figures provide the estimated CO2 or cost of production based on the predicted concrete compressive strength of concrete using SCMs and different aggregates (supplemental cementitious materials).
+  - Notebook 1 displays optimal mixtures for strength trade-offs.
 
 
 **How to run models:**
