@@ -1,9 +1,9 @@
 # Project Description
 
-Goals -> This journal aims to optimize the mechanical properties and environmental/economic benefits of concrete through machine learning models. Based on the listed datasets, the machine learning models identify variables that affect the mechanical properties of concrete, including, but not limited to, varying levels of ground granulated blast-furnace slag, fly ash, age, and cement. By creating these models, future research can be conducted on predicted mixtures that have both sufficient compressive strength and environmental/economic benefits for regular use.
+**Goals** -> This journal aims to optimize the mechanical properties and environmental/economic benefits of concrete through machine learning models. Based on the listed datasets, the machine learning models identify variables that affect the mechanical properties of concrete, including, but not limited to, varying levels of ground granulated blast-furnace slag, fly ash, age, and cement. By creating these models, future research can be conducted on predicted mixtures that have both sufficient compressive strength and environmental/economic benefits for regular use.
 
 
-Dataset -> The models are trained based on the following datasets:
+**Dataset** -> The models are trained based on the following datasets:
 
 - Yeh, I. (1998). Concrete Compressive Strength [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5PK67.
   - Includes cement, blast furnace slag, fly ash, water, superplasticizer, coarse aggregate, fine aggregate, and age as features
@@ -11,7 +11,7 @@ Dataset -> The models are trained based on the following datasets:
   - Units are kg/m^3, with the exception of age and concrete compressive strength, which are listed as "day" and "MPa."
 
 
-Modeling Approach -> The notebooks clean up the given dataset and use a train-test split (80-20) to measure the accuracy and reliability of the model. Linear regression serves as a baseline model for editing other machine learning models. A total of three models are analyzed:
+**Modeling Approach** -> The notebooks clean up the given dataset and use a train-test split (80-20) to measure the accuracy and reliability of the model. Linear regression serves as a baseline model for editing other machine learning models. A total of three models are analyzed:
 
 - Linear regression, a regression model used for a baseline (linear)
 - Random forest, a parallel machine learning model (bagging)
@@ -20,7 +20,7 @@ Modeling Approach -> The notebooks clean up the given dataset and use a train-te
 One of the three models is selected based on the R^2 value. Before this, outliers in the datasets are filtered, and correlations are made between variables in the datasets. Finally, the selected model will use both the correlations and the data to determine mixtures that optimize concrete compressive strength. Sustainability proxies are also used to consider environmental and economic trade-offs. A Pareto-optimal mixture is displayed to indicate the mixture.
 
 
-Model Explanation/Relevance -> Relevant details and explanations of each model will be covered in this section.
+**Model Explanation** -> Relevant details and explanations of each model will be covered in this section.
 
 (Note that 8/9 of the numeric columns in the dataset are used in the train-test split (excludes compressive strength), and a solid line over a variable, such as ȳ, indicates the average value during the explanation section)
 
@@ -77,9 +77,9 @@ Model Explanation/Relevance -> Relevant details and explanations of each model w
     - Similar to random forest, gradient boosting models cannot extrapolate and are computationally expensive.
 
 
-How to run models:
+**How to run models:**
 
-Notebook 1
+<u>Notebook 1<u>
 1. Open eco_concrete_strength_notebook1 and run the setup code to install dependencies (located above step 1).
 2. Edit the DATA_DIR location to the desired CSV data in a Google Drive location located in step 1.
     - Refer to comments for clarity within the notebook.
@@ -89,7 +89,7 @@ Notebook 1
     - Refer to comments for units
 5. (Optional) Edit the RF (random forest) parameters, then rerun the notebook to optimize the figure and results.
 
-Notebook 2
+<u>Notebook 2<u>
 1. Open eco_concrete_stength_notebook2 and install dependencies.
 2. Edit the DATA_DIR and BASE_DIR locations, and set DATA_DIR based on which option is chosen, as listed in step 1.
     - BASE_DIR is set up similarly to DATA_DIR, but will instead receive figures and outputs yielded by Notebook 2 for publication usage.
