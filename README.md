@@ -78,9 +78,6 @@ One of the three models is selected based on the R^2 value. Before this, outlier
     - Similar to random forest, gradient boosting models cannot extrapolate and are computationally expensive.
 
 
-**Results** -> The results of this journal yielded a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD) and CO₂ (kg/m^3). Future studies can utilize the notebooks and results of this study to guide real-world testing and application in construction.
-
-
 **Figure Overview** -> This section will briefly describe the "figures" section of this GitHub (note that gradient boosting was considered the best model, and thus is used in all the figures):
 
 - feature_importance_GradientBoosting_tuned.png
@@ -92,6 +89,9 @@ One of the three models is selected based on the R^2 value. Before this, outlier
 - tradeoff_strength_vs_co2_proxy.png + tradeoff_strength_vs_cost_proxy.png:
   - These figures provide the estimated CO2 or cost of production based on the predicted concrete compressive strength of concrete using SCMs and different aggregates (supplemental cementitious materials).
   - Notebook 1 displays optimal mixtures for strength trade-offs.
+
+
+**Results** -> The results of this journal yielded a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD) and CO₂ (kg/m^3). Future studies can utilize the notebooks and results of this study to guide real-world testing and application in construction.
 
 
 **How to run models:**
