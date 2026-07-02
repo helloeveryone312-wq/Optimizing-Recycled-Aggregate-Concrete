@@ -1,4 +1,4 @@
-# Optimizing Recycled Aggregate Concrete
+# Optimizing Baseline Concrete Compressive Strength Using SCM Features
 # Project Description
 
 **Goals** -> This study aims to optimize the mechanical properties and environmental/economic benefits of concrete through machine learning models. Based on the listed datasets, the machine learning models identify the importance of variables that affect the mechanical properties of concrete, including, but not limited to, varying levels of ground granulated blast-furnace slag, fly ash, age, and cement. By creating these models, future research can be conducted on predicted/new mixtures that have both sufficient compressive strength and environmental/economic benefits for regular use.
@@ -21,11 +21,11 @@
 The current UCI data **DOES NOT** include RCA replacement percentage, recycled aggregate source, parent concrete strength, RCA water absorption, RCA density, or plastic fiber content. This will be integrated later with an RCA-specific dataset.
 
 
-**Modeling Approach** -> The notebooks clean up the given dataset and use a train-test split (80-20) to measure the accuracy and reliability of the model. Linear regression serves as a baseline model for editing other machine learning models. A total of three models are analyzed:
+**Modeling Approach** -> The notebooks clean up the given dataset and use a train-test split (80-20) to measure the accuracy and reliability of the model. Linear regression is used as a baseline model for comparison against more flexible tree-based methods. A total of three models are analyzed:
 
-- Linear regression, a regression model used for a baseline (linear)
-- Random forest, a parallel machine learning model (bagging)
-- Gradient boosting, a sequential machine learning model (boosting)
+- Linear regression, a linear regression model used for a baseline.
+- Random forest, an ensemble bagging model that averages many decision trees.
+- Gradient boosting, an ensemble boosting model that builds trees sequentially to correct previous errors.
 
 One of the three models is selected based on the R^2 value. Before this, outliers in the datasets are filtered, and correlations are made between variables in the datasets. Finally, the selected model will use both the correlations and the data to determine mixtures that optimize concrete compressive strength. Sustainability proxies are also used to consider environmental and economic trade-offs. A Pareto-optimal mixture is displayed to indicate the mixture.
 
@@ -39,8 +39,9 @@ One of the three models is selected based on the R^2 value. Before this, outlier
     - The parameters of linear regression involve an intercept (A) and a slope (B). A simple linear regression equation is often written as such: y=Ax+B. The intercept represents the value of the independent variable as the dependent variable approaches 0. The slope represents the average change of the dependent variable as the independent variable changes.
   - Calculating R^2 and MAE
     - Let's assume y<sub>1 </sub>is the predicted value of the dependent variable while y<sub>2 </sub>is the actual value of the dependent variable.
-    - Then, R^2 = 1 ( Σ (y<sub>2</sub> - y<sub>1</sub>)² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ) and MAE = (1 / n) Σ |y<sub>2</sub> - y<sub>1</sub>|.
+    - Then, R^2 = 1 - ( Σ (y<sub>2</sub> - y<sub>1</sub>)² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ) and MAE = (1 / n) Σ |y<sub>2</sub> - y<sub>1</sub>|.
       - Note that at the top of the sigma notation is n and at the bottom is i=1, where n is the total number of observations and i=1 indicates the first observation.
+      - Also note that the units for MAE are MPa.
   - Limitations
     - Linear regression is heavily affected by outliers and does not suit datasets that have not already been linearized. That is to say, linear regression is not suited for non-linear relationships between variables.
 
@@ -57,8 +58,9 @@ One of the three models is selected based on the R^2 value. Before this, outlier
     - max_depth and min_samples_leaf are used to prevent overfitting, where the model learns the training data to a point where the model is ineffective in analyzing new datasets. Decreasing max_depth and increasing min_samples_leaf help this issue.
   - Calculating R^2 and MAE
     - Let's assume y<sub>1 </sub>is the predicted value of the dependent variable while y<sub>2 </sub>is the actual value of the dependent variable.
-    - Then, R^2 = 1 ( Σ (y<sub>2</sub> - y<sub>1</sub>)² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ) and MAE = (1 / n) Σ |y<sub>2</sub> - y<sub>1</sub>|.
+    - Then, R^2 = 1 - ( Σ (y<sub>2</sub> - y<sub>1</sub>)² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ) and MAE = (1 / n) Σ |y<sub>2</sub> - y<sub>1</sub>|.
       - Note that at the top of the sigma notation is n and at the bottom is i=1, where n is the total number of observations and i=1 indicates the first observation.
+      - Also note that the units for MAE are MPa.
   - Limitations
     - Random forest models are limited by their inability to extrapolate, or the inability to predict values outside the range of the training data.
     - Random forest regression is memory-intensive for larger data sets and may be hard to interpret.
@@ -79,10 +81,11 @@ One of the three models is selected based on the R^2 value. Before this, outlier
     - Each variable is prone to overfitting, so balancing these 3 is crucial for an accurate model.
   - Calculating R^2 and MAE
     - Let's assume y<sub>1 </sub>is the predicted value of the dependent variable while y<sub>2 </sub>is the actual value of the dependent variable.
-    - Then, R^2 = 1 ( Σ (y<sub>2</sub> - y<sub>1</sub>)² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ) and MAE = (1 / n) Σ |y<sub>2</sub> - y<sub>1</sub>|.
+    - Then, R^2 = 1 - ( Σ (y<sub>2</sub> - y<sub>1</sub>)² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ) and MAE = (1 / n) Σ |y<sub>2</sub> - y<sub>1</sub>|.
       - Note that at the top of the sigma notation is n and at the bottom is i=1, where n is the total number of observations and i=1 indicates the first observation.
+      - Also note that the units for MAE are MPa.
   - Limitations
-    - Gradient boosting models are very prone to overfitting and thus affected by very large datasets and noisy data, because they must fix and correct each error.
+    - Gradient boosting can overfit noisy data or overly complex patterns if n_estimators, learning_rate, and max_depth are not controlled, because they must fix and correct each error.
       - A large number of boosting stages focus the model on outliers.
       - learning_rate and max_depth cause overfitting at high values.
     - Similar to random forest, gradient boosting models cannot extrapolate and are computationally expensive.
@@ -101,8 +104,18 @@ One of the three models is selected based on the R^2 value. Before this, outlier
   - Notebook 1 displays optimal mixtures for strength trade-offs.
 
 
-**Results** -> The results of this project showed a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD) or CO₂ (kg/m^3). Future studies can utilize the notebooks and results of this study to guide real-world testing and application in construction.
+**Results** -> The results of this project showed a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD) or CO₂ (kg/m^3).
 
+Notebook 2 Results: Gradient Boosting was selected for downstream interpretation because it achieved the highest held-out test R² and the lowest test MAE, as seen below:
+
+- Linear Regression: R² = 0.628, MAE = 7.75 MPa
+- Random Forest tuned: R² = 0.881, MAE = 3.79 MPa
+- Gradient Boosting tuned: R² = 0.920, MAE = 3.12 MPa
+
+Additionally, it is important to note that the Random Forest model held a slightly stronger mean cross-validation R² compared to Gradient Boosting in cv_summary.csv. However, Gradient Boosting performed best on the held-out test set and was therefore selected over Random Forest.
+
+Future studies can utilize the notebooks and results of this study to guide real-world testing and application in construction.
+ 
 
 **Notebook Map** -> The notebooks and their specific function/purpose in this study will be listed in this section of the README. Additional information on how to run these notebooks is provided in the next section.
 
