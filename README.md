@@ -97,7 +97,7 @@ One of the three models is selected based on the R^2 value. Before this, outlier
 
 **How to run models:**
 
-<u>Notebook 1<u>
+<u>01_baseline_strength_model.ipynb<u>
 1. Open eco_concrete_strength_notebook1 and run the setup code to install dependencies (located above step 1).
 2. Edit the DATA_DIR location to the desired CSV data in a Google Drive location located in step 1.
     - Refer to comments for clarity within the notebook.
@@ -107,7 +107,7 @@ One of the three models is selected based on the R^2 value. Before this, outlier
     - Refer to comments for units
 5. (Optional) Edit the RF (random forest) parameters, then rerun the notebook to optimize the figure and results.
 
-<u>Notebook 2<u>
+<u>02_cv_tuning_and_outputs.ipynb<u>
 1. Open eco_concrete_stength_notebook2 and install dependencies.
 2. Edit the DATA_DIR and BASE_DIR locations, and set DATA_DIR based on which option is chosen, as listed in step 1.
     - BASE_DIR is set up similarly to DATA_DIR, but will instead receive figures and outputs yielded by Notebook 2 for publication usage.
@@ -116,3 +116,6 @@ One of the three models is selected based on the R^2 value. Before this, outlier
     - Rename the feature map if using different variables.
     - Refer to comments for units
 5. (Optional) Edit the GBR (gradient boosting regressor) or RF parameters, then rerun the notebook to optimize the figure and results.
+
+<u>03_rca_dataset_modeling.ipynb<u>
+(insert)
