@@ -101,7 +101,7 @@ One of the three models is selected based on the R^2 value. Before this, outlier
   - Notebook 1 displays optimal mixtures for strength trade-offs.
 
 
-**Results** -> The results of this journal yielded a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD) or CO₂ (kg/m^3). Future studies can utilize the notebooks and results of this study to guide real-world testing and application in construction.
+**Results** -> The results of this project showed a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD) or CO₂ (kg/m^3). Future studies can utilize the notebooks and results of this study to guide real-world testing and application in construction.
 
 
 **Notebook Map** -> The notebooks and their specific function/purpose in this study will be listed in this section of the README. Additional information on how to run these notebooks is provided in the next section.
