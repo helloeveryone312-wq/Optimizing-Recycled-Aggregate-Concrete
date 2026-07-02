@@ -4,12 +4,21 @@
 **Goals** -> This study aims to optimize the mechanical properties and environmental/economic benefits of concrete through machine learning models. Based on the listed datasets, the machine learning models identify the importance of variables that affect the mechanical properties of concrete, including, but not limited to, varying levels of ground granulated blast-furnace slag, fly ash, age, and cement. By creating these models, future research can be conducted on predicted/new mixtures that have both sufficient compressive strength and environmental/economic benefits for regular use.
 
 
+**Current Project Stage** -> This section will explain the current and future stages of the study to provide insight into how it will develop.
+
+- Current stage: baseline model stabilized on UCI concrete compressive strength data.
+- Next stage: identify and integrate RCA-specific dataset.
+- Final stage: update model, GitHub, figures, and paper for JHSS submission.
+
+
 **Dataset** -> The models are trained based on the following datasets:
 
 - Yeh, I. (1998). Concrete Compressive Strength [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5PK67.
   - Includes cement, blast furnace slag, fly ash, water, superplasticizer, coarse aggregate, fine aggregate, and age as features
   - Includes concrete compressive strength as a target value
   - Units are kg/m^3, except for age and concrete compressive strength, which are listed as "day" and "MPa."
+
+The current UCI data **DOES NOT** include RCA replacement percentage, recycled aggregate source, parent concrete strength, RCA water absorption, RCA density, or plastic fiber content. This will be integrated later with an RCA-specific dataset.
 
 
 **Modeling Approach** -> The notebooks clean up the given dataset and use a train-test split (80-20) to measure the accuracy and reliability of the model. Linear regression serves as a baseline model for editing other machine learning models. A total of three models are analyzed:
@@ -51,10 +60,10 @@ One of the three models is selected based on the R^2 value. Before this, outlier
     - Then, R^2 = 1 ( Σ (y<sub>2</sub> - y<sub>1</sub>)² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ) and MAE = (1 / n) Σ |y<sub>2</sub> - y<sub>1</sub>|.
       - Note that at the top of the sigma notation is n and at the bottom is i=1, where n is the total number of observations and i=1 indicates the first observation.
   - Limitations
-    - Random forest models are limited by their inability to extrapolate, or the ability to predict values outside the range of the training data.
+    - Random forest models are limited by their inability to extrapolate, or the inability to predict values outside the range of the training data.
     - Random forest regression is memory-intensive for larger data sets and may be hard to interpret.
     - Accuracy decreases with an increase in highly correlated variables, creating a bias that dilutes feature importance.
-    - Irrelevant values also distort importance scores and hinder each split or node during learning through diluting the feature list random forest models select from.
+    - Irrelevant values also distort importance scores and hinder each split or node during learning through diluting the feature list that random forest models select from.
 
 - Gradient Boosting:
   - Relevant Variables
@@ -92,7 +101,22 @@ One of the three models is selected based on the R^2 value. Before this, outlier
   - Notebook 1 displays optimal mixtures for strength trade-offs.
 
 
-**Results** -> The results of this journal yielded a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD) and CO₂ (kg/m^3). Future studies can utilize the notebooks and results of this study to guide real-world testing and application in construction.
+**Results** -> The results of this journal yielded a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD) or CO₂ (kg/m^3). Future studies can utilize the notebooks and results of this study to guide real-world testing and application in construction.
+
+
+**Notebook Map** -> The notebooks and their specific function/purpose in this study will be listed in this section of the README. Additional information on how to run these notebooks is provided in the next section.
+
+<u>01_baseline_strength_model.ipynb<u>
+- Acts as an exploratory, baseline notebook with exploratory data analysis (EDA).
+- Contains initial models, residuals, tradeoff plots, and Pareto exploration.
+
+<u>02_cv_tuning_and_outputs.ipynb<u>
+- Acts as the final baseline modeling notebook.
+- Uses cross-validation and hyperparameter tuning to create the best model.
+- Saves figures and CSV outputs for publication usage.
+
+<u>03_rca_dataset_modeling.ipynb<u>
+- Future notebook planned to be added for recycled aggregate dataset modeling.
 
 
 **How to run models:**
@@ -108,7 +132,7 @@ One of the three models is selected based on the R^2 value. Before this, outlier
 5. (Optional) Edit the RF (random forest) parameters, then rerun the notebook to optimize the figure and results.
 
 <u>02_cv_tuning_and_outputs.ipynb<u>
-1. Open eco_concrete_stength_notebook2 and install dependencies.
+1. Open eco_concrete_strength_notebook2 and install dependencies.
 2. Edit the DATA_DIR and BASE_DIR locations, and set DATA_DIR based on which option is chosen, as listed in step 1.
     - BASE_DIR is set up similarly to DATA_DIR, but will instead receive figures and outputs yielded by Notebook 2 for publication usage.
 3. Continue running the notebook in sequence and read the comments for clarification.
@@ -118,4 +142,7 @@ One of the three models is selected based on the R^2 value. Before this, outlier
 5. (Optional) Edit the GBR (gradient boosting regressor) or RF parameters, then rerun the notebook to optimize the figure and results.
 
 <u>03_rca_dataset_modeling.ipynb<u>
-(insert)
+(planned for RA dataset modeling)
+
+
+**Author Note:** The next phase of this study will replace or supplement the current baseline dataset with an RCA-specific dataset so the model can directly evaluate recycled aggregate replacement effects.
