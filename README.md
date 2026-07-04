@@ -100,8 +100,8 @@ One of the three models is selected based on the R^2 value. Before this, outlier
   - Provides a graph representing the prediction accuracy of the best model regarding concrete compressive strength.
   - Shows a reasonable level of accuracy for determining feature importance
 - tradeoff_strength_vs_co2_proxy.png + tradeoff_strength_vs_cost_proxy.png:
-  - These figures provide the estimated CO2 or cost of production based on the predicted concrete compressive strength of concrete using SCMs and different aggregates (supplemental cementitious materials).
-  - Notebook 1 displays optimal mixtures for strength trade-offs.
+  - These figures provide the estimated CO₂ in kg CO₂e per kg material or cost in USD per kg of material based on the predicted concrete compressive strength of concrete using SCMs and different aggregates (supplemental cementitious materials).
+  - Notebook 1 displays Pareto optimal mixtures for predicted strength trade-offs.
 
 
 **Results** -> The results of this project showed a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD) or CO₂ (kg/m^3).
