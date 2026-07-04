@@ -126,7 +126,8 @@ Future studies can utilize the notebooks and results of this study to guide real
 <u>02_cv_tuning_and_outputs.ipynb<u>
 - Acts as the final baseline modeling notebook.
 - Uses cross-validation and hyperparameter tuning to create the best model.
-- Saves figures and CSV outputs for publication usage.
+  - This only occurs in the training set, not the test set (80-20 train-test split).
+- Saves figures and CSV outputs for publication usage; refer to this notebook for the final baseline results.
 
 <u>03_rca_dataset_modeling.ipynb<u>
 - Future notebook planned to be added for recycled aggregate dataset modeling.
