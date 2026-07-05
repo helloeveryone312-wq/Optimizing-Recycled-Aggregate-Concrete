@@ -41,7 +41,7 @@ One of the three models is selected based on the R^2 value. Before this, outlier
     - Let's assume y<sub>1 </sub>is the predicted value of the dependent variable while y<sub>2 </sub>is the actual value of the dependent variable.
     - Then, R^2 = 1 - ( Σ (y<sub>2</sub> - y<sub>1</sub>)² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ) and MAE = (1 / n) Σ |y<sub>2</sub> - y<sub>1</sub>|.
       - Note that at the top of the sigma notation is n and at the bottom is i=1, where n is the total number of observations and i=1 indicates the first observation.
-      - Also note that the units for MAE are MPa.
+      - Also note that the units for MAE are MPa, and that the purpose of R^2 and MAE is to determine how well the model is performing (Higher R^2 value and lower MAE indicate a more accurate model).
   - Limitations
     - Linear regression is heavily affected by outliers and does not suit datasets that have not already been linearized. That is to say, linear regression is not suited for non-linear relationships between variables.
 
@@ -60,7 +60,7 @@ One of the three models is selected based on the R^2 value. Before this, outlier
     - Let's assume y<sub>1 </sub>is the predicted value of the dependent variable while y<sub>2 </sub>is the actual value of the dependent variable.
     - Then, R^2 = 1 - ( Σ (y<sub>2</sub> - y<sub>1</sub>)² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ) and MAE = (1 / n) Σ |y<sub>2</sub> - y<sub>1</sub>|.
       - Note that at the top of the sigma notation is n and at the bottom is i=1, where n is the total number of observations and i=1 indicates the first observation.
-      - Also note that the units for MAE are MPa.
+      - Also note that the units for MAE are MPa, and that the purpose of R^2 and MAE is to determine how well the model is performing (Higher R^2 value and lower MAE indicate a more accurate model).
   - Limitations
     - Random forest models are limited by their inability to extrapolate, or the inability to predict values outside the range of the training data.
     - Random forest regression is memory-intensive for larger data sets and may be hard to interpret.
@@ -83,7 +83,7 @@ One of the three models is selected based on the R^2 value. Before this, outlier
     - Let's assume y<sub>1 </sub>is the predicted value of the dependent variable while y<sub>2 </sub>is the actual value of the dependent variable.
     - Then, R^2 = 1 - ( Σ (y<sub>2</sub> - y<sub>1</sub>)² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ) and MAE = (1 / n) Σ |y<sub>2</sub> - y<sub>1</sub>|.
       - Note that at the top of the sigma notation is n and at the bottom is i=1, where n is the total number of observations and i=1 indicates the first observation.
-      - Also note that the units for MAE are MPa.
+      - Also note that the units for MAE are MPa, and that the purpose of R^2 and MAE is to determine how well the model is performing (Higher R^2 value and lower MAE indicate a more accurate model).
   - Limitations
     - Gradient boosting can overfit noisy data or overly complex patterns if n_estimators, learning_rate, and max_depth are not controlled, because they must fix and correct each error.
       - A large number of boosting stages focus the model on outliers.
