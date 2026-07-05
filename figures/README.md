@@ -9,3 +9,8 @@
 - tradeoff_strength_vs_co2_proxy.png + tradeoff_strength_vs_cost_proxy.png:
   - These figures provide the estimated CO₂ in kg CO₂e per kg of material or cost in USD per kg of material based on the predicted concrete compressive strength of concrete using SCMs and different aggregates (supplemental cementitious materials).
   - Labeled as a proxy analysis due to improper current values.
+
+
+ **Figure Analysis** -> This section will go more in depth about the contents of each figure, specifically, any relationships, outliers, and behaviors the figure may contain.
+
+ <ins>feature_importance_GradientBoosting_tuned.png<ins>
