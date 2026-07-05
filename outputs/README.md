@@ -19,3 +19,7 @@ This presents the results of the three models using the test set, which was held
 permutation_importance_GradientBoosting_tuned.csv:
 
 This represents the permutation importance of each feature considered in evaluating concrete compressive strength, based on the selected model (in this case, GradientBoosting). These features are stored in a table with their respective means and standard deviations.
+
+pareto_candidates_baseline.csv:
+
+This contains 24 different Pareto optimal mixtures based on the tradeoff proxy analysis processed by a Gradient Boosting model in 01_baseline_strength_model. The current results contain values that are not realistic, as seen in column "co2_proxy_kg." Thus, this figure will be updated once CO2 and cost factors are accurate in the notebooks.
