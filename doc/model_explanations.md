@@ -1,1 +1,59 @@
+**Model Explanation** -> Relevant details and explanations of each model will be covered in this section.
 
+(Note that 8/9 of the numeric columns in the dataset are used in the train-test split (excludes compressive strength), and a solid line over a variable, such as ȳ, indicates the average value during the explanation section)
+
+- Linear Regression:
+  - Short Explanation
+    - The parameters of linear regression involve an intercept (A) and a slope (B). A simple linear regression equation is often written as such: y=Ax+B. The intercept represents the value of the independent variable as the dependent variable approaches 0. The slope represents the average change of the dependent variable as the independent variable changes.
+  - Calculating R^2 and MAE
+    - Let's assume y<sub>1 </sub>is the predicted value of the dependent variable while y<sub>2 </sub>is the actual value of the dependent variable.
+    - Then, R^2 = 1 - ( Σ (y<sub>2</sub> - y<sub>1</sub>)² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ) and MAE = (1 / n) Σ |y<sub>2</sub> - y<sub>1</sub>|.
+      - Note that at the top of the sigma notation is n and at the bottom is i=1, where n is the total number of observations and i=1 indicates the first observation.
+      - Also note that the units for MAE are MPa, and that the purpose of R^2 and MAE is to determine how well the model is performing (Higher R^2 value and lower MAE indicate a more accurate model).
+  - Limitations
+    - Linear regression is heavily affected by outliers and does not suit datasets that have not already been linearized. That is to say, linear regression is not suited for non-linear relationships between variables.
+
+- Random Forest:
+  - Relevant Variables
+    - n_estimators: controls the number of decision trees and improves the model's performance at the cost of computational cost and training time.
+    - random_state: ensures reproducibility of the model.
+    - n_jobs: determines the number of CPU cores to run the regression model.
+    - max_depth: only in the hyperparameter grid in Notebook 2, defines the longest sequential path of an individual decision tree.
+    - min_samples_leaf: ensures each tree has a minimum number of samples.
+    - All other variables are unchanged and set to default.
+  - Variable Significance
+    - Increases in n_estimators and n_jobs allow for improved result quality and speed, respectively. Note that n_estimators generally reach a point of diminishing returns at 200 trees.
+    - max_depth and min_samples_leaf are used to prevent overfitting, where the model learns the training data to a point where the model is ineffective in analyzing new datasets. Decreasing max_depth and increasing min_samples_leaf help this issue.
+  - Calculating R^2 and MAE
+    - Let's assume y<sub>1 </sub>is the predicted value of the dependent variable while y<sub>2 </sub>is the actual value of the dependent variable.
+    - Then, R^2 = 1 - ( Σ (y<sub>2</sub> - y<sub>1</sub>)² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ) and MAE = (1 / n) Σ |y<sub>2</sub> - y<sub>1</sub>|.
+      - Note that at the top of the sigma notation is n and at the bottom is i=1, where n is the total number of observations and i=1 indicates the first observation.
+      - Also note that the units for MAE are MPa, and that the purpose of R^2 and MAE is to determine how well the model is performing (Higher R^2 value and lower MAE indicate a more accurate model).
+  - Limitations
+    - Random forest models are limited by their inability to extrapolate, or the inability to predict values outside the range of the training data.
+    - Random forest regression is memory-intensive for larger data sets and may be hard to interpret.
+    - Accuracy decreases with an increase in highly correlated variables, creating a bias that dilutes feature importance.
+    - Irrelevant values also distort importance scores and hinder each split or node during learning through diluting the feature list that random forest models select from.
+
+- Gradient Boosting:
+  - Relevant Variables
+    - random_state: ensures reproducibility of the model.
+    - n_estimators: affects the number of boosting stages (defined as a "tree").
+    - max_depth: defines the max number of splits, and consequently the complexity, of each tree.
+    - learning_rate: defines the contribution of each tree.
+    - All other variables are unchanged and set to default.
+  - Variable significance
+    - n_estimators minimizes model error by increasing the number of decision trees.
+    - max_depth allows for complex data interaction and can be increased if learning_rate is low and n_estimators is too high.
+    - learning_rate allows for each decision tree to contribute more, requiring fewer n_estimators as learning_rate increases.
+    - Each variable is prone to overfitting, so balancing these 3 is crucial for an accurate model.
+  - Calculating R^2 and MAE
+    - Let's assume y<sub>1 </sub>is the predicted value of the dependent variable while y<sub>2 </sub>is the actual value of the dependent variable.
+    - Then, R^2 = 1 - ( Σ (y<sub>2</sub> - y<sub>1</sub>)² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ) and MAE = (1 / n) Σ |y<sub>2</sub> - y<sub>1</sub>|.
+      - Note that at the top of the sigma notation is n and at the bottom is i=1, where n is the total number of observations and i=1 indicates the first observation.
+      - Also note that the units for MAE are MPa, and that the purpose of R^2 and MAE is to determine how well the model is performing (Higher R^2 value and lower MAE indicate a more accurate model).
+  - Limitations
+    - Gradient boosting can overfit noisy data or overly complex patterns if n_estimators, learning_rate, and max_depth are not controlled, because they must fix and correct each error.
+      - A large number of boosting stages focus the model on outliers.
+      - learning_rate and max_depth cause overfitting at high values.
+    - Similar to random forest, gradient boosting models cannot extrapolate and are computationally expensive.
