@@ -43,7 +43,12 @@ It's important to note that gradient boosting and random forest are limited by t
 - tradeoff_strength_vs_co2_proxy.png + tradeoff_strength_vs_cost_proxy.png:
   - These figures provide the estimated CO₂ in kg CO₂e per kg of material or cost in USD per kg of material based on the predicted concrete compressive strength of concrete using SCMs and different aggregates (supplemental cementitious materials).
   - Labeled as a proxy analysis due to improper current values.
-
+- residual_plot_baseline.png
+  - This plot shows the residuals at different levels of concrete compressive strength based on the predictions of the gradient boosting model.
+  - Demonstrates the model is accurate with an uncertainty of ±5 MPa for most predictions.
+- pareto_candidates_baseline.png
+  - Provides a highlighted graph with optimal mixtures to minimize CO₂ while maximizing the concrete compressive strength.
+  - The graphical results stem from a proxy analysis and should not be considered fully accurate.
 
 **Results** -> The results of this project showed a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD) or CO₂ (kg/m^3).
 
