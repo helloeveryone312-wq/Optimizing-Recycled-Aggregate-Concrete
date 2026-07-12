@@ -50,7 +50,7 @@ It's important to note that gradient boosting and random forest are limited by t
   - Provides a highlighted graph with optimal mixtures to minimize CO₂ while maximizing the concrete compressive strength.
   - The graphical results stem from a proxy analysis and should not be considered fully accurate.
 
-**Results** -> The results of this project showed a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD) or CO₂ (kg/m^3).
+**Results** -> The results of this project showed a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD/kg) or CO₂ (kg CO₂e/kg).
 
 Notebook 2 Results: Gradient Boosting was selected for downstream interpretation because it achieved the highest held-out test R² and the lowest test MAE, as seen below:
 
