@@ -1,5 +1,19 @@
+# Jupyter Notebook checkpoints
+
 .ipynb_checkpoints/
-__pycache__/
-.DS_Store
-.env
+
+
+# Python cache and compiled files
+
+pycache/
 *.pyc
+
+
+# Environment variables
+
+.env
+
+
+# macOS system files
+
+.DS_Store
