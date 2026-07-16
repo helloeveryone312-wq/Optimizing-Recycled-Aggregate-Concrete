@@ -21,7 +21,7 @@
 
 <ins>feature_importance_GradientBoosting_tuned.png<ins>
 
-The figure demonstrates that **age, cement, water, and blast furnace slag** have the highest permutation importance value when determining a concrete mixture's compressive strength. This graph matches real-world observations but does not show the relationship between the feature and the compressive strength of a mixture. Thus, graphs such as the correlation heatmap in 01_baseline_strength_model.ipynb can be used alongside feature importance to better understand these variables.
+The figure demonstrates that **age, cement, and water** seem to be the most important features when predicting concrete compressive strength, but do not indicate direct physical causation. This graph matches real-world observations to an extent, though correlated variables can distort the importance. It's also important to note that low-importance variables, such as fly ash, do not reflect their significance in practical applications.
 
 Notably, fly ash has a low permutation importance in the current baseline model. This does not mean fly ash is scientifically unimportant, nor does it mean it doesn't have a practical application. Rather, it highlights the limited predictive influence of the currently trained model. 
 
