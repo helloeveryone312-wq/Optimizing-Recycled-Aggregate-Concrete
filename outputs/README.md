@@ -8,18 +8,22 @@ Note that permutation importance is model-specific and data-specific and should 
 
 **Output Descriptions** -> This section covers each output and a short description of what each contains.
 
-<ins>cv_summary.csv<ins>
+<ins>baseline_model_comparison_cv_baseline.csv<ins>
 
-This compares the three models' provided R^2 values and the MAE, showing the mean and standard deviation (std) of each based on a 5-fold cross-validation on the training set data. Using this summary, the higher-performing model among the three can be determined.
+This compares the three models' provided R^2 values and the MAE, showing the mean and standard deviation (std) of each based on a 5-fold cross-validation on the training set data. Using this summary, the higher-performing, more accurate model among the three can be determined. This CSV is created in either 01_baseline_strength_model.ipynb or 02_cv_tuning_and_outputs.ipynb, yielding the same result.
 
-<ins>test_set_results_baseline.csv<ins>
+<ins>baseline_model_test_results_baseline.csv + test_set_results_baseline.csv<ins>
 
-This presents the results of the three models using the test set, which was held out from training and used only for final model evaluation. The CSV provides an R^2 value on the test set and compares it to the training set results, yielding an MAE for each model. Notably, this ranking was used over the one in cv_summary.csv to determine the most accurate model, as the values in this CSV were tested on untouched data.
+These CSVs present the results of the three models on the test set, as shown in their respective notebooks; the test set was held out from training and used only for final model evaluation. The CSV provides an R^2 value on the test set and compares it to the training set results, yielding an MAE for each model. Each model is evaluated using cross-validation, as specified in the code comments in the notebooks. Notably, this comes from the models that ran through hyperparameter tuning in 02_cv_tuning_and_outputs.ipynb, but have lower R^2 values than the models in 01_baseline_strength_model.ipynb when run on the test set. This indicates that the hyperparameter tuning decreased the model accuracy in some way.
 
-<ins>permutation_importance_GradientBoosting_tuned.csv<ins>
+<ins>permutation_importance_GradientBoosting_baseline.csv + permutation_importance_GradientBoosting_tuned_baseline.csv<ins>
 
-This represents the permutation importance of each feature considered in evaluating concrete compressive strength, based on the selected model (in this case, GradientBoosting). These features are stored in a table with their respective means and standard deviations.
+This represents the permutation importance of each feature considered in evaluating concrete compressive strength, based on the selected model (in this case, gradient boosting). In other words, a higher value indicates an important feature to the selected model when making predictions about concrete compressive strength. These features are stored in a table with their respective means and standard deviations. The tuned CSV comes from 02_cv_tuning_and_outputs.ipynb, where the model is run through hyperparameter tuning before determining permutation importance.
 
 <ins>pareto_candidates_baseline.csv<ins>
 
-This contains 24 different Pareto optimal mixtures based on the tradeoff proxy analysis processed by a Gradient Boosting model in 01_baseline_strength_model. The current results contain values that are not realistic, as seen in column "co2_proxy_kg." Thus, this figure will be updated once CO2 and cost factors are accurate in the notebooks.
+This contains 26 different Pareto-optimal mixtures based on the tradeoff proxy analysis processed by a Gradient Boosting model in 02_cv_tuning_and_outputs.ipynb. For better visualization, refer to the Pareto candidates figures in the present repo.
+
+<ins>sustainability_results_baseline.csv<ins>
+
+The CSV contains the original UCI dataset and adds two additional columns, being "co2_proxy_kg_per_m3" and "cost_proxy_usd_per_m3." These values are used to make the figures for proxy analysis and determine Pareto-optimal mixtures. For better visualization, refer to the tradeoff proxy figures in the present repo.
