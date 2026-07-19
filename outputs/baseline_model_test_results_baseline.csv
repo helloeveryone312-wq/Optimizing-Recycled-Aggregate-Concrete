@@ -1,0 +1,4 @@
+model,selected_by_training_cv,test_r2,test_mae_mpa
+GradientBoosting,True,0.8722331635258349,4.861627050585794
+RandomForest,False,0.8633951994347004,4.890062244072721
+LinearRegression,False,0.6182332255501843,9.02997010901514
