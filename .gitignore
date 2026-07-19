@@ -5,7 +5,7 @@
 
 # Python cache and compiled files
 
-pycache/
+_pycache_/
 *.pyc
 
 
