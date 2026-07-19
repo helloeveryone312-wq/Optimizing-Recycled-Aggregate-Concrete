@@ -41,12 +41,15 @@
     - n_estimators: affects the number of boosting stages (defined as a "tree").
     - max_depth: defines the max number of splits, and consequently the complexity, of each tree.
     - learning_rate: defines the contribution of each tree.
+    - subsample: defines the percentage of training data to build the next tree.
     - All other variables are unchanged and set to default.
   - Variable significance
     - n_estimators minimizes model error by increasing the number of decision trees.
     - max_depth allows for complex data interaction and can be increased if learning_rate is low and n_estimators is too high.
     - learning_rate allows for each decision tree to contribute more, requiring fewer n_estimators as learning_rate increases.
-    - Each variable is prone to overfitting, so balancing these 3 is crucial for an accurate model.
+    - Every variable is prone to overfitting, so balancing these 3 is crucial for an accurate model.
+    - subsample is the exception and prevents overfitting by sectioning data.
+      - Consequently, a low subsample value can cause underfitting.
   - Calculating R^2 and MAE
     - Let's assume y<sub>1 </sub>is the predicted value of the dependent variable while y<sub>2 </sub>is the actual value of the dependent variable.
     - Then, R^2 = 1 - ( Σ (y<sub>2</sub> - y<sub>1</sub>)² ) / ( Σ (y<sub>2</sub> - ȳ<sub>2</sub>)² ) and MAE = (1 / n) Σ |y<sub>2</sub> - y<sub>1</sub>|.
