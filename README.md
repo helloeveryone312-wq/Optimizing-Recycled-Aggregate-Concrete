@@ -21,7 +21,7 @@
 The current UCI data **DOES NOT** include RCA replacement percentage, recycled aggregate source, parent concrete strength, RCA water absorption, RCA density, or plastic fiber content. This will be integrated later with an RCA-specific dataset.
 
 
-**Modeling Approach** -> The notebooks clean up the given dataset and use a group shuffle split or a train-test split to measure the accuracy and reliability of the model. Linear regression is used as a baseline model for comparison against more flexible tree-based methods. A total of three models are analyzed:
+**Modeling Approach** -> The notebooks clean up the given dataset and use a train-test split and cross-validation to measure the accuracy and reliability of the model. Linear regression is used as a baseline model for comparison against more flexible tree-based methods. More information exists within the notebook comments. A total of three models are analyzed:
 
 - Linear regression, a linear regression model used for a baseline.
 - Random forest, an ensemble bagging model that averages many decision trees.
@@ -52,17 +52,19 @@ It's important to note that gradient boosting and random forest models are limit
 
 **Results** -> The results of this project showed a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD/kg) or CO₂ (kg CO₂e/kg).
 
-Notebook 1 Final Results: Gradient boosting was selected for downstream interpretation because it achieved the highest held-out test R² and the lowest test MAE, as seen below.
+01_baseline_strength_model.ipynb Final Results: Gradient boosting was selected for downstream interpretation because it achieved the highest held-out test R² and the lowest test MAE, as seen below.
 
 - Linear Regression: R² = 0.618, MAE = 9.030 MPa
 - Random Forest tuned: R² = 0.863, MAE = 4.890 MPa
 - Gradient Boosting tuned: R² = 0.872, MAE = 4.862 MPa
 
-Notebook 2 Final Results: Gradient boosting was selected for downstream interpretation because it achieved the highest held-out test R² and the lowest test MAE, as seen below.
+02_cv_tuning_and_outputs.ipynb Final Results: Gradient boosting was selected for downstream interpretation because it achieved the highest held-out test R² and the lowest test MAE, as seen below.
 
 - Linear Regression: R² = 0.579, MAE = 9.03 MPa
 - Random Forest tuned: R² = 0.831, MAE = 5.027 MPa
 - Gradient Boosting tuned: R² = 0.852, MAE = 4.484 MPa
+
+02_cv_tuning_and_outputs.ipynb Pareto Exploration Results: See the "figures" folder and notebook for tabled results.
 
 Additionally, it is important to note that the gradient boosting model held a stronger mean cross-validation R² consistently throughout both notebooks. Therefore, the gradient boosting model was used for all publishable figures, excluding the target distribution and correlation heatmap present in 01_baseline_strength_model.ipynb.
 
