@@ -21,15 +21,15 @@
 The current UCI data **DOES NOT** include RCA replacement percentage, recycled aggregate source, parent concrete strength, RCA water absorption, RCA density, or plastic fiber content. This will be integrated later with an RCA-specific dataset.
 
 
-**Modeling Approach** -> The notebooks clean up the given dataset and use a train-test split (80-20) to measure the accuracy and reliability of the model. Linear regression is used as a baseline model for comparison against more flexible tree-based methods. A total of three models are analyzed:
+**Modeling Approach** -> The notebooks clean up the given dataset and use a group shuffle split or a train-test split to measure the accuracy and reliability of the model. Linear regression is used as a baseline model for comparison against more flexible tree-based methods. A total of three models are analyzed:
 
 - Linear regression, a linear regression model used for a baseline.
 - Random forest, an ensemble bagging model that averages many decision trees.
 - Gradient boosting, an ensemble boosting model that builds trees sequentially to correct previous errors.
 
-One of the three models is selected based on the R^2 value. Before this, outliers in the datasets are filtered, and correlations are made between variables in the datasets. Finally, the selected model will use both the correlations and the data to determine mixtures that optimize concrete compressive strength. Sustainability proxies are also used to consider environmental and economic trade-offs. A Pareto-optimal mixture is displayed to indicate the mixture.
+One of the three models is selected based on the R^2 value. Before this, outliers in the datasets are filtered, and correlations are computed between variables. Finally, the selected model will use both the correlations and the data to determine mixtures that optimize concrete compressive strength. Sustainability proxies are also used to consider environmental and economic trade-offs. A Pareto-optimal mixture is displayed to indicate the mixture.
 
-It's important to note that gradient boosting and random forest are limited by their inability to extrapolate, and linear regression has trouble fitting multivariable non-linear data that is used in this study. Depending on the model's configurations, they can prove to be computationally expensive as well. More information can be found in docs/model_explanations.md in the present README.
+It's important to note that gradient boosting and random forest models are limited by their inability to extrapolate, and linear regression has trouble fitting the multivariable, non-linear data used in this study. Depending on the model's configurations, they can prove to be computationally expensive as well. More information can be found in docs/model_explanations.md in the present README.
 
 
 **Figure Overview** -> This section will briefly describe the "figures" section of this GitHub (note that gradient boosting was considered the best model, and thus is used in all the figures):
@@ -52,13 +52,19 @@ It's important to note that gradient boosting and random forest are limited by t
 
 **Results** -> The results of this project showed a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD/kg) or CO₂ (kg CO₂e/kg).
 
-Notebook 2 Results: Gradient Boosting was selected for downstream interpretation because it achieved the highest held-out test R² and the lowest test MAE, as seen below:
+Notebook 1 Final Results: Gradient boosting was selected for downstream interpretation because it achieved the highest held-out test R² and the lowest test MAE, as seen below.
 
-- Linear Regression: R² = 0.628, MAE = 7.75 MPa
-- Random Forest tuned: R² = 0.881, MAE = 3.79 MPa
-- Gradient Boosting tuned: R² = 0.920, MAE = 3.12 MPa
+- Linear Regression: R² = 0.618, MAE = 9.030 MPa
+- Random Forest tuned: R² = 0.863, MAE = 4.890 MPa
+- Gradient Boosting tuned: R² = 0.872, MAE = 4.862 MPa
 
-Additionally, it is important to note that the Random Forest model held a slightly stronger mean cross-validation R² compared to Gradient Boosting in cv_summary.csv. However, Gradient Boosting performed best on the held-out test set and was therefore selected over Random Forest.
+Notebook 2 Final Results: Gradient boosting was selected for downstream interpretation because it achieved the highest held-out test R² and the lowest test MAE, as seen below.
+
+- Linear Regression: R² = 0.579, MAE = 9.03 MPa
+- Random Forest tuned: R² = 0.831, MAE = 5.027 MPa
+- Gradient Boosting tuned: R² = 0.852, MAE = 4.484 MPa
+
+Additionally, it is important to note that the gradient boosting model held a stronger mean cross-validation R² consistently throughout both notebooks. Therefore, the gradient boosting model was used for all publishable figures, excluding the target distribution and correlation heatmap present in 01_baseline_strength_model.ipynb.
 
 Future studies can utilize the notebooks and results of this study to guide real-world testing and application in construction.
  
@@ -67,13 +73,15 @@ Future studies can utilize the notebooks and results of this study to guide real
 
 <u>01_baseline_strength_model.ipynb<u>
 - Acts as an exploratory, baseline notebook with exploratory data analysis (EDA).
-- Contains initial models, residuals, tradeoff plots, and Pareto exploration.
+- Contains initial models, residuals, and tradeoff plots.
+- Includes cross-validation with training and test data
 
 <u>02_cv_tuning_and_outputs.ipynb<u>
 - Acts as the final baseline modeling notebook.
 - Uses cross-validation and hyperparameter tuning to create the best model.
   - This only occurs in the training set, not the test set (80-20 train-test split).
 - Saves figures and CSV outputs for publication usage; refer to this notebook for the final baseline results.
+- Includes sustainability proxy analysis and Pareto exploration with a list of Pareto-optimal mixtures
 
 <u>03_rca_dataset_modeling.ipynb<u>
 - Future notebook planned to be added for recycled aggregate dataset modeling.
@@ -83,20 +91,16 @@ Future studies can utilize the notebooks and results of this study to guide real
 
 <u>01_baseline_strength_model.ipynb<u>
 1. Open eco_concrete_strength_notebook1 and run the setup code to install dependencies (located above step 1).
-2. Edit the DATA_DIR location to the desired CSV data in a Google Drive location located in step 1.
+2. Set RUN_MODE to either repo or drive, depending on the dataset location in step 1.
     - Refer to comments for clarity within the notebook.
 3. Continue running the notebook in sequence and read the comments for clarification.
-4. Replace the placeholder values with the desired CO<sub>2 </sub>and cost values based on research in step 8
-    - Rename the feature map if using different variables.
-    - Refer to comments for units
-5. (Optional) Edit the RF (random forest) parameters, then rerun the notebook to optimize the figure and results.
+4. (Optional) Edit the RF (random forest) parameters, then rerun the notebook to optimize the figure and results.
 
 <u>02_cv_tuning_and_outputs.ipynb<u>
 1. Open eco_concrete_strength_notebook2 and install dependencies.
-2. Edit the DATA_DIR and BASE_DIR locations, and set DATA_DIR based on which option is chosen, as listed in step 1.
-    - BASE_DIR is set up similarly to DATA_DIR, but will instead receive figures and outputs yielded by Notebook 2 for publication usage.
+2. Set RUN_MODE to either repo or drive, depending on the dataset location in step 1.
 3. Continue running the notebook in sequence and read the comments for clarification.
-4. Replace the placeholder values with the desired CO<sub>2 </sub>and cost values based on research in step 8
+4. Replace working_factors with updated literature results for CO<sub>2 </sub>and cost values based on current relevance in step 10
     - Rename the feature map if using different variables.
     - Refer to comments for units
 5. (Optional) Edit the GBR (gradient boosting regressor) or RF parameters, then rerun the notebook to optimize the figure and results.
