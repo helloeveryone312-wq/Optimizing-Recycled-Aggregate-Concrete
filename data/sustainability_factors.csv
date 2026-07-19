@@ -1,0 +1,8 @@
+material,co2_kg_per_kg,cost_usd_per_kg,source,year,geography
+cement,0.83,0.072,Mixture Optimization of Sustainable Concrete with Silica Fume Considering CO2 Emissions and Cost (Wang et al.); Emissions in CO2e/kg and cost converted to USD/kg from Table 1.,2022,global emissions; cost source-specific
+blast_furnace_slag,0.143,0.054,A Comprehensive Review on the Ground Granulated Blast Furnace Slag (GGBS) in Concrete Production (Ahmad et al.); 0.143 t CO2e/t GGBS in Table 2. USA price note: USD 54/t.,2022,global emissions; USA cost
+fly_ash,0.0001,0.126,Optimizing calcium efficiency for sustainable cement with GGBFS-fly ash systems (Wattanachai et al.); 0.1 kg CO2e/tonne converted to kg CO2e/kg in Table 3. USA price note: USD 126/t.,2025,source-specific emissions; USA cost
+water,0.000196,0.00032,Mixture Optimization of Sustainable Concrete with Silica Fume Considering CO2 Emissions and Cost (Wang et al.); Emissions in CO2e/kg and cost converted to USD/kg from Table 1.,2022,global emissions; cost source-specific
+superplasticizer,0.25,0.8032,Mixture Optimization of Sustainable Concrete with Silica Fume Considering CO2 Emissions and Cost (Wang et al.); Emissions in CO2e/kg and cost converted to USD/kg from Table 1.,2022,global emissions; cost source-specific
+coarse_aggregate,0.0075,0.0096,Mixture Optimization of Sustainable Concrete with Silica Fume Considering CO2 Emissions and Cost (Wang et al.); Emissions in CO2e/kg and cost converted to USD/kg from Table 1.,2022,global emissions; cost source-specific
+fine_aggregate,0.0026,0.008,Mixture Optimization of Sustainable Concrete with Silica Fume Considering CO2 Emissions and Cost (Wang et al.); Emissions in CO2e/kg and cost converted to USD/kg from Table 1.,2022,global emissions; cost source-specific
