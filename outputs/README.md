@@ -4,7 +4,7 @@
 - MAE: mean absolute error in MPa
 - Permutation importance: change in model score when one feature is randomly shuffled
 
-Note that permutation importance is model-specific and data-specific and should not be treated as a universal ranking.
+Note that permutation importance is model-specific and data-specific and should not be treated as a universal ranking. Also, refer to the outputs from 02_cv_tuning_and_outputs.ipynb as the authoritative source for final model performance.
 
 **Output Descriptions** -> This section covers each output and a short description of what each contains.
 
