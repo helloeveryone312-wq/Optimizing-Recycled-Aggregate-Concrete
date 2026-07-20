@@ -64,13 +64,13 @@ It's important to note that gradient boosting and random forest models are limit
 
 **Results** -> The results of this project showed a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD/kg) or CO₂ (kg CO₂e/kg).
 
-01_baseline_strength_model.ipynb Final Results: Gradient boosting was selected for downstream interpretation because it achieved the highest held-out test R² and the lowest test MAE, as seen below.
+01_baseline_strength_model.ipynb Exploratory Baseline Results: Gradient boosting was selected for downstream interpretation because it achieved the highest held-out test R² and the lowest test MAE, as seen below.
 
 - Linear Regression: R² = 0.618, MAE = 9.030 MPa
 - Random Forest tuned: R² = 0.863, MAE = 4.890 MPa
 - Gradient Boosting tuned: R² = 0.872, MAE = 4.862 MPa
 
-02_cv_tuning_and_outputs.ipynb Final Results: Gradient boosting was selected for downstream interpretation because it achieved the highest held-out test R² and the lowest test MAE, as seen below.
+02_cv_tuning_and_outputs.ipynb Tuned Final Baseline Results: Gradient boosting was selected for downstream interpretation because it achieved the highest held-out test R² and the lowest test MAE, as seen below.
 
 - Linear Regression: R² = 0.579, MAE = 9.03 MPa
 - Random Forest tuned: R² = 0.831, MAE = 5.027 MPa
