@@ -74,7 +74,7 @@ It's important to note that gradient boosting and random forest models are limit
 
 - Linear Regression: R² = 0.579, MAE = 9.03 MPa
 - Random Forest tuned: R² = 0.831, MAE = 5.027 MPa
-- Gradient Boosting tuned: R² = 0.852, MAE = 4.484 MPa
+- Gradient Boosting tuned: R² = 0.887, MAE = 4.484 MPa
 
 02_cv_tuning_and_outputs.ipynb Pareto Exploration Results: See the "figures" folder and notebook for tabled results.
 
