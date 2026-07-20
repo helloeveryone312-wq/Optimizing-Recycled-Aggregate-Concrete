@@ -1,4 +1,4 @@
-**Model Explanation** -> Relevant details and explanations of each model will be covered in this section.
+**Model Explanation** -> Relevant details and explanations of each model will be covered in this section. Each explanation applies to both untuned and tuned models in 01_baseline_strength_model.ipynb and 02_cv_tuning_and_outputs.ipynb, respectively.
 
 (Note that 8/9 of the numeric columns in the dataset are used in the train-test split (excludes compressive strength), and a solid line over a variable, such as ȳ, indicates the average value during the explanation section)
 
