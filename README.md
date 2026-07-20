@@ -29,7 +29,7 @@ The current UCI data **DOES NOT** include RCA replacement percentage, recycled a
 
 One of the three models is selected based on the R^2 value. Before this, outliers in the datasets are filtered, and correlations are computed between variables. Finally, the selected model will use both the correlations and the data to determine mixtures that optimize concrete compressive strength. Sustainability proxies are also used to consider environmental and economic trade-offs. A Pareto-optimal mixture is displayed to indicate the mixture.
 
-It's important to note that gradient boosting and random forest models are limited by their inability to extrapolate, and linear regression has trouble fitting the multivariable, non-linear data used in this study. Depending on the model's configurations, they can prove to be computationally expensive as well. More information can be found in docs/model_explanations.md in the present README.
+It's important to note that gradient boosting and random forest models are limited by their inability to extrapolate, and linear regression has trouble fitting the multivariable, non-linear data used in this study. Depending on the model's configurations, they can prove to be computationally expensive as well. More information can be found in docs/model_explanations.md in the present README. Additionally, 01_baseline_strength_model.ipynb contains untuned gradient boosting and random forest models, while 02_cv_tuning_and_outputs.ipynb conducts hyperparameter tuning for the final figures and outputs.
 
 
 **Figure Overview** -> This section will briefly describe the "figures" section of this GitHub (note that gradient boosting was considered the best model, and thus is used in all the figures):
