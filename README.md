@@ -34,21 +34,33 @@ It's important to note that gradient boosting and random forest models are limit
 
 **Figure Overview** -> This section will briefly describe the "figures" section of this GitHub (note that gradient boosting was considered the best model, and thus is used in all the figures):
 
-- feature_importance_GradientBoosting_tuned.png
+- feature_importance_GradientBoosting_baseline.png + feature_importance_GradientBoosting_tuned_baseline.png
   - Provides a visualization for the given CSV file: "permutation_importance_GradientBoosting_tuned.csv".
-  - Defines the importance of each feature in determining concrete compressive strength based on the best model.
-- pred_vs_actual_GradientBoosting_tuned.png
+  - Defines the importance assigned by the selected model to each feature in predicting concrete compressive strength.
+  - The tuned feature importance graph had the selected model go through hyperparameter tuning before creating the figure.
+- pred_vs_actual_GradientBoosting_baseline.png + pred_vs_actual_GradientBoosting_tuned_baseline.png
   - Provides a graph representing the prediction accuracy of the best model regarding concrete compressive strength.
-  - Shows a reasonable level of accuracy for determining feature importance
-- tradeoff_strength_vs_co2_proxy.png + tradeoff_strength_vs_cost_proxy.png:
-  - These figures provide the estimated CO₂ in kg CO₂e per kg of material or cost in USD per kg of material based on the predicted concrete compressive strength of concrete using SCMs and different aggregates (supplemental cementitious materials).
-  - Labeled as a proxy analysis due to improper current values.
-- residual_plot_baseline.png
+  - Shows a reasonable level of accuracy for determining feature importance, determined by test set results.
+  - The tuned scatterplot graph had the selected model go through hyperparameter tuning before creating the figure.
+- tradeoff_strength_vs_co2_proxy_baseline.png + tradeoff_strength_vs_cost_proxy_baseline.png:
+  - These figures provide the estimated CO₂ in kg CO₂e per m^3 of material or cost in USD per m^3 of material based on the predicted concrete compressive strength of concrete using SCMs (supplemental cementitious materials) and different aggregates.
+  - Units are presented in predicted compressive strength in MPa on the y-axis
+  - Labeled as a proxy analysis due to inconsistent, varying values across features and industries.
+- residual_plot_GradientBoosting_baseline.png + residual_plot_GradientBoosting_tuned_baseline.png
   - This plot shows the residuals at different levels of concrete compressive strength based on the predictions of the gradient boosting model.
   - Demonstrates the model is accurate with an uncertainty of ±5 MPa for most predictions.
-- pareto_candidates_baseline.png
-  - Provides a highlighted graph with optimal mixtures to minimize CO₂ while maximizing the concrete compressive strength.
+  - The tuned scatterplot graph had the selected model go through hyperparameter tuning before creating the figure.
+- pareto_candidates_baseline.png + pareto_candidates_cost_baseline.png
+  - Provides a highlighted graph with optimal mixtures to minimize CO₂ and cost while maximizing the concrete compressive strength, respectively.
   - The graphical results stem from a proxy analysis and should not be considered fully accurate.
+  - Units are presented in CO₂ in kg CO₂e per m^3 of material or cost in USD per m^3 on the x-axis.
+  - Units are presented in predicted compressive strength in MPa on the y-axis.
+- target_distribution_baseline.png
+  - Represents the distribution of concrete compressive strength between each row in the dataset.
+  - Shows a right-skewed distribution of the data, indicating a larger amount of data between 0-40 MPa.
+- correlation_heatmap_baseline.png
+  - Demonstrates the exploratory relationships between target and feature columns in the dataset.
+  - Shows a positive correlation between cement, age, and superplasticizer, and a weaker or negative correlation with water, fly ash, and aggregates with concrete compressive strength
 
 **Results** -> The results of this project showed a clear definition of feature importance regarding concrete compressive strength. There also exist mixtures for concrete compressive strength (MPa) while optimizing either cost (USD/kg) or CO₂ (kg CO₂e/kg).
 
@@ -75,14 +87,14 @@ Future studies can utilize the notebooks and results of this study to guide real
 
 <u>01_baseline_strength_model.ipynb<u>
 - Acts as an exploratory, baseline notebook with exploratory data analysis (EDA).
-- Contains initial models, residuals, and tradeoff plots.
+- Contains initial untuned models, residuals, and tradeoff plots.
 - Includes cross-validation with training and test data
 
 <u>02_cv_tuning_and_outputs.ipynb<u>
 - Acts as the final baseline modeling notebook.
 - Uses cross-validation and hyperparameter tuning to create the best model.
   - This only occurs in the training set, not the test set (80-20 train-test split).
-- Saves figures and CSV outputs for publication usage; refer to this notebook for the final baseline results.
+- Saves tuned figures and CSV outputs for publication usage; refer to this notebook for the final baseline results.
 - Includes sustainability proxy analysis and Pareto exploration with a list of Pareto-optimal mixtures
 
 <u>03_rca_dataset_modeling.ipynb<u>
