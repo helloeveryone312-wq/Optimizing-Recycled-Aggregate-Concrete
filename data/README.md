@@ -13,9 +13,9 @@
 6. Number of input features: 8
 7. Target: concrete compressive strength in MPa.
 8. Units: kg/m³ for mixture ingredients, days for age, MPa for strength.
-9. What the CSV contains: cement, blast furnace slag, fly ash, water, superplasticizer, coarse aggregate, fine aggregate, age, concrete compressive strength. Note that "blast furnace slag" refers to ground granulated blast furnace slag (GGBFS), and both aggregates are natural aggregates, not recycled.
-10. Where is this used and how: the CSV is used in both 01_baseline_strength_model.ipynb and 02_cv_tuning_and_outputs.ipynb. The data is used to train baseline models and is utilized in all outputs/figures except the Pareto exploration (though a model trained on the data is used in this case).
-11. Notebook outputs of the CSV: the current outputs consist of ranking the permutation importance of each feature using a Gradient Boosting model, test set results from a train-test split ranking the performance of 3 models based on R^2 and MAE, and a summary ranking the models on their R^2 value based on a 5-fold cross-validation on the training set.
+9. What the CSV contains: cement, blast furnace slag, fly ash, water, superplasticizer, coarse aggregate, fine aggregate, age, concrete compressive strength. Note that "blast furnace slag" refers to ground granulated blast furnace slag (GGBFS), and both aggregates are natural, not recycled.
+10. Where is this used and how: the CSV is used in both 01_baseline_strength_model.ipynb and 02_cv_tuning_and_outputs.ipynb. The data is used to train baseline models and is utilized in model-related outputs/figures except the Pareto exploration (though a model trained on the data is used in this case).
+11. Notebook outputs of the CSV: the current outputs consist of ranking the permutation importance of each feature using a Gradient Boosting model, test set results from a train-test split ranking the performance of 3 models based on R^2 and MAE, and a summary ranking the models on their R^2 value based on a 5-fold cross-validation on the training set. The CSV is also used to graph all relevant figures in the present repo.
 12. Limitation: CSV does not contain any direct RCA feature or information for cost/CO₂ proxies.
 
 <ins>Mechanical Properties of Recycled Aggregate Concrete Dataset<ins>
@@ -28,8 +28,8 @@
 7. Target: concrete compressive, split tensile, and flexural strength in MPa; modulus of elasticity in MPa.
 8. Units: kg/m³ for mixture ingredients, MPa for target values.
 9. What the CSV contains: w/c, a/c, water, cement, natural fine aggregate, natural coarse aggregate, recycled coarse aggregate, recycled fine aggregate, compressive strength, split tensile strength, flexural strength, and modulus of elasticity.
-10. Where is this used and how: the CSV is used in 03_rca_dataset_modeling.ipynb. The data is used to ____
-11. Notebook outputs of the CSV: the current outputs consist of ____
+10. Where is this used and how: the CSV is used in 03_rca_dataset_modeling.ipynb. The data is used to train a model on the effect of recycled aggregates on concrete compressive strength. It is utilized in almost all model-related figures and outputs, alongside model robustness checks.
+11. Notebook outputs of the CSV: the current outputs consist of tuned and untuned model metrics, Pareto-optimal mixtures, permutation importance values, and model prediction inconsistencies across different feature ranges. The CSV is also used to graph all relevant figures in the present repo.
 12. Limitation: CSV does not contain any direct information about the aggregates or information for cost/CO₂ proxies.
 
 **Sustainability Factors Description** -> The CSV is created in 02_cv_tuning_and_outputs.ipynb, where literature values and relevant information are stored and exported as a CSV by the notebook to conduct Pareto exploration. Each cost and emission factor for the features, alongside the relevance, source, and geography, is listed within the CSV. Three main sources exist:
