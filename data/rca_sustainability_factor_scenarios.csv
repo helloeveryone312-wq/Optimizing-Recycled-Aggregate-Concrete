@@ -1,0 +1,19 @@
+scenario,material,co2_kg_per_kg,source,doi,original_value,original_unit,conversion,geography_or_context
+low,cement,0.8726,Environmental Performance of Deconstructable Concrete Beams,10.3390/su141811457,0.8726,kg CO2e/kg,none,source-specific concrete LCA
+central,cement,0.912,ICE Database value reported in concrete LCA literature,,0.912,kg CO2e/kg,none,database-derived working value
+high,cement,1.002,Carbon Emission Evaluation of CO2 Curing in Recycled-Aggregate Concrete,10.3390/ma16062436,1.002,kg CO2e/kg,none,source-specific concrete LCA
+low,water,0.000196,Project baseline proxy documentation,,0.196,kg CO2e/m3 water,divide by 1000 kg water per m3,working value
+central,water,0.0003,ICE Database value reported in concrete LCA literature,,0.0003,kg CO2e/kg,none,database-derived working value
+high,water,0.00041,Review of Waste Materials in Rigid Airport Pavements,10.3390/su17156959,0.00041,kg CO2e/kg,none,source-specific concrete inventory
+low,natural_fine_aggregate,0.00221,Environmental Evaluation of Concrete Containing Recycled and By-Product Aggregates,10.3390/app10217503,0.00221,kg CO2e/kg sand,none,Korean LCI database
+central,natural_fine_aggregate,0.0055,Review of Waste Materials in Rigid Airport Pavements,10.3390/su17156959,0.0055,kg CO2e/kg natural aggregate,none,reviewed inventory value
+high,natural_fine_aggregate,0.0314,Shear Response of Recycled Aggregates Concrete Deep Beams,10.3390/su14020945,0.0052 to 0.0314,kg CO2e/kg natural aggregate,upper end of reported range,compiled source range
+low,natural_coarse_aggregate,0.0041,Carbon Emission Evaluation of CO2 Curing in Recycled-Aggregate Concrete,10.3390/ma16062436,0.0041,kg CO2e/kg coarse gravel,none,source-specific concrete inventory
+central,natural_coarse_aggregate,0.0143,Analysis of Life Cycle Environmental Impact of Recycled Aggregate,10.3390/app9051021,0.0143,kg CO2e/kg natural gravel,none,Korean cradle-to-gate aggregate production
+high,natural_coarse_aggregate,0.0314,Shear Response of Recycled Aggregates Concrete Deep Beams,10.3390/su14020945,0.0052 to 0.0314,kg CO2e/kg natural aggregate,upper end of reported range,compiled source range
+low,recycled_fine_aggregate,0.0014,Environmental Performance of Deconstructable Concrete Beams,10.3390/su141811457,0.0014,kg CO2e/kg recycled aggregate,none,electricity-based processing scenario
+central,recycled_fine_aggregate,0.0149,Environmental Evaluation of Concrete Containing Recycled and By-Product Aggregates,10.3390/app10217503,0.0149,kg CO2e/kg recycled aggregate,none,Korean LCI database
+high,recycled_fine_aggregate,0.0381,Analysis of Life Cycle Environmental Impact of Recycled Aggregate,10.3390/app9051021,0.0381,kg CO2e/kg wet recycled aggregate,none,wet-processing cradle-to-gate scenario
+low,recycled_coarse_aggregate,0.0014,Environmental Performance of Deconstructable Concrete Beams,10.3390/su141811457,0.0014,kg CO2e/kg recycled aggregate,none,electricity-based processing scenario
+central,recycled_coarse_aggregate,0.0149,Environmental Evaluation of Concrete Containing Recycled and By-Product Aggregates,10.3390/app10217503,0.0149,kg CO2e/kg recycled aggregate,none,Korean LCI database
+high,recycled_coarse_aggregate,0.0381,Analysis of Life Cycle Environmental Impact of Recycled Aggregate,10.3390/app9051021,0.0381,kg CO2e/kg wet recycled aggregate,none,wet-processing cradle-to-gate scenario
