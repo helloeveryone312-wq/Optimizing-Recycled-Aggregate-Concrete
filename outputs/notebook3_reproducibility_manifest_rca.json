@@ -1,0 +1,82 @@
+{
+  "notebook": "03_rca_dataset_modeling_and_pareto_analysis_REVISED.ipynb",
+  "run_mode": "repo",
+  "base_dir": "/content",
+  "dataset": {
+    "title": "Mechanical Properties of Recycled Aggregate Concrete",
+    "author": "Paul Awoyera",
+    "year": "2025",
+    "doi": "10.17632/2pxdbh6vx7.1",
+    "local_file": "/content/data/rca_awoyera_2025_mechanical_properties.xlsx",
+    "sha256": "49c2885a300ba96ed7f7c6a865180ad9a34d9a8be1714c44c7b9ab31121b5678"
+  },
+  "random_state": 42,
+  "flagged_row_policy": "exclude",
+  "documented_corrections_applied": 1,
+  "flagged_rows_excluded": 0,
+  "aggregate_ratio_verified": false,
+  "selected_feature_set": "verified_original",
+  "selected_features": [
+    "water_cement_ratio",
+    "water",
+    "cement",
+    "natural_fine_aggregate",
+    "natural_coarse_aggregate",
+    "recycled_coarse_aggregate",
+    "recycled_fine_aggregate"
+  ],
+  "selected_model": "RandomForest_tuned",
+  "primary_holdout_metrics": {
+    "r2": 0.8680496467041157,
+    "mae_mpa": 3.518333994687546,
+    "rmse_mpa": 4.596904367774587
+  },
+  "repeated_group_splits": 30,
+  "stable_predicted_pareto_candidate_count": 13,
+  "outputs_created": [
+    "error_by_recycled_fraction_rca.csv",
+    "error_by_strength_band_rca.csv",
+    "measured_stable_pareto_candidates_rca.csv",
+    "notebook3_final_synthesis_rca.json",
+    "notebook3_final_synthesis_rca.md",
+    "pareto_scenario_summary_rca.csv",
+    "pareto_strength_threshold_shortlist_rca.csv",
+    "permutation_importance_RandomForest_tuned_rca.csv",
+    "predicted_stable_pareto_candidates_rca.csv",
+    "prepared_rca_modeling_table_rca.csv",
+    "rca_aggregate_cement_ratio_audit.csv",
+    "rca_documented_correction_log.csv",
+    "rca_feature_ablation_group_cv_rca.csv",
+    "rca_feature_sets_rca.csv",
+    "rca_final_model_test_results_rca.csv",
+    "rca_flagged_rows_for_manual_review.csv",
+    "rca_group_tuning_summary_rca.csv",
+    "rca_grouped_oof_predictions_rca.csv",
+    "rca_repeated_group_validation_summary_rca.csv",
+    "rca_repeated_nested_group_validation_rca.csv",
+    "rca_summary_statistics_rca.csv",
+    "rca_sustainability_and_pareto_sensitivity_rca.csv",
+    "rca_sustainability_factor_scenarios_used_rca.csv",
+    "rca_test_predictions_RandomForest_tuned_rca.csv",
+    "rca_tuning_effect_summary_rca.csv"
+  ],
+  "figures_created": [
+    "correlation_heatmap_rca.png",
+    "feature_importance_RandomForest_tuned_rca.png",
+    "measured_vs_predicted_stable_pareto_frontiers_rca.png",
+    "pred_vs_actual_RandomForest_tuned_rca.png",
+    "recycled_aggregate_fraction_distribution_rca.png",
+    "repeated_group_validation_rca.png",
+    "residual_plot_RandomForest_tuned_rca.png",
+    "strength_vs_recycled_fraction_rca.png",
+    "target_distribution_rca.png"
+  ],
+  "package_versions": {
+    "python": "3.13.15",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "matplotlib": "3.10.0",
+    "scikit_learn": "1.6.1",
+    "openpyxl": "3.1.5"
+  }
+}

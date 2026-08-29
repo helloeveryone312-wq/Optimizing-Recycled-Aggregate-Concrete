@@ -1,0 +1,50 @@
+{
+  "dataset_rows_raw": 112,
+  "documented_corrections_applied": 1,
+  "flagged_rows_excluded": 0,
+  "cleaned_rows_modeled": 105,
+  "aggregate_ratio_consistency_rate": 0.1619047619047619,
+  "aggregate_ratio_verified": false,
+  "selected_feature_set": "verified_original",
+  "selected_features": [
+    "water_cement_ratio",
+    "water",
+    "cement",
+    "natural_fine_aggregate",
+    "natural_coarse_aggregate",
+    "recycled_coarse_aggregate",
+    "recycled_fine_aggregate"
+  ],
+  "selected_model": "RandomForest_tuned",
+  "primary_holdout_metrics": {
+    "r2": 0.8680496467041157,
+    "mae_mpa": 3.518333994687546,
+    "rmse_mpa": 4.596904367774587
+  },
+  "repeated_group_validation_median": {
+    "r2": 0.7778663218436659,
+    "mae_mpa": 4.103561784375774,
+    "rmse_mpa": 5.6059767013809525
+  },
+  "repeated_group_validation_2_5_to_97_5": {
+    "r2": [
+      0.3929348809310818,
+      0.8805351322557242
+    ],
+    "mae_mpa": [
+      2.8573065184670408,
+      5.228121845875656
+    ],
+    "rmse_mpa": [
+      3.6272130525695037,
+      7.9139355538064535
+    ]
+  },
+  "high_strength_test_quartile": {
+    "threshold": "Q4 (highest strength)",
+    "count": 5,
+    "mean_absolute_error_mpa": 5.88432561134005
+  },
+  "stable_pareto_candidate_count": 13,
+  "external_validation_available": false
+}
