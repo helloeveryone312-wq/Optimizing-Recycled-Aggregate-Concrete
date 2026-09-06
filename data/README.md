@@ -28,14 +28,19 @@
 7. Target: concrete compressive, split tensile, and flexural strength in MPa; modulus of elasticity in MPa.
 8. Units: kg/m³ for mixture ingredients, MPa for target values.
 9. What the CSV contains: w/c, a/c, water, cement, natural fine aggregate, natural coarse aggregate, recycled coarse aggregate, recycled fine aggregate, compressive strength, split tensile strength, flexural strength, and modulus of elasticity.
-10. Where is this used and how: the CSV is used in 03_rca_dataset_modeling.ipynb. The data is used to train a model on the effect of recycled aggregates on concrete compressive strength. It is utilized in almost all model-related figures and outputs, alongside model robustness checks.
+10. Where is this used and how: the CSV is used in 03_rca_dataset_modeling.ipynb. The data is used to train a model on the effect of recycled aggregates on concrete compressive strength. It is utilized in almost all model-related figures and outputs, alongside model robustness checks. One row is edited for an impossible value using rca_data_corrections.csv.
 11. Notebook outputs of the CSV: the current outputs consist of tuned and untuned model metrics, Pareto-optimal mixtures, permutation importance values, and model prediction inconsistencies across different feature ranges. The CSV is also used to graph all relevant figures in the present repo.
 12. Limitation: the CSV has limited information on calculating input variables, such as a/c and w/c.
 
-**Sustainability Factors Description** -> The CSV is created in 02_cv_tuning_and_outputs.ipynb, where literature values and relevant information are stored and exported as a CSV by the notebook to conduct Pareto exploration. Each cost and emission factor for the features, alongside the relevance, source, and geography, is listed within the CSV. Three main sources exist:
+**Sustainability Factors Description** -> One CSV is created in 02_cv_tuning_and_outputs.ipynb, where literature values and relevant information are stored and exported as a CSV by the notebook to conduct Pareto exploration. Each cost and emission factor for the features, alongside the relevance, source, and geography, is listed within the CSV. Three main sources exist:
 
 - Mixture Optimization of Sustainable Concrete with Silica Fume Considering CO2 Emissions and Cost (Wang et al.)
 - A Comprehensive Review on the Ground Granulated Blast Furnace Slag (GGBS) in Concrete Production (Ahmad et al.)
 - Optimizing calcium efficiency for sustainable cement with GGBFS-fly ash systems (Wattanachai et al.)
+
+Another CSV is used for 03_rca_dataset_modeling_and_pareto_analysis.ipynb with a much larger range of sources for different emission factor scenarios. Scenario, material, source, emissions value, DOI, original value, conversion method, and geography/context are all included in the CSV. A list of the relevant sources is below:
+
+- Menegatti, L. C., Castrillon Fernandez, L. I., Caldas, L. R., Pepe, M., Pittau, F., Zani, G., Rampini, M. C., Michels, J., Toledo Filho, R. D., & Martinelli, E. (2022). Environmental Performance of Deconstructable Concrete Beams Made with Recycled Aggregates. Sustainability, 14(18), 11457. https://doi.org/10.3390/su141811457
+- 
 
 Source publications vary from 2019 to 2026 in both sustainability factor CSVs. US price notes and other values without DOIs refer to the most recent estimations available (Ex., fly ash and ground granulated blast furnace slag in sustainability_factor.csv). This presents a notable difference that could affect the Pareto analysis, as price and emissions values could have fluctuated noticeably. Additionally, the geographical locations are not the same throughout all sources, and an attempt is made to keep source values focused in the US. Generally, these comments only apply to the material costs, as global emissions shouldn't be affected by geography, but may be affected in 2022 by COVID-19 and other related events.
