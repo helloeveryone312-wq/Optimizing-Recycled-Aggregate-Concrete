@@ -1,2 +1,0 @@
-selected_model,untuned_family,untuned_group_cv_r2,tuned_group_cv_r2,group_cv_r2_change
-RandomForest_tuned,RandomForest,0.682908064717162,0.6965802727081701,0.0136722079910081
