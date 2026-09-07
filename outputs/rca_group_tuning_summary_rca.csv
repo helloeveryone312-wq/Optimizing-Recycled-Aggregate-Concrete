@@ -1,4 +1,0 @@
-model,best_group_cv_r2,best_params
-RandomForest_tuned,0.6965802727081701,"{""max_depth"": null, ""min_samples_leaf"": 2, ""n_estimators"": 400}"
-GradientBoosting_tuned,0.6730722138452353,"{""learning_rate"": 0.07, ""max_depth"": 2, ""n_estimators"": 300}"
-LinearRegression,0.4621900738336128,{}
