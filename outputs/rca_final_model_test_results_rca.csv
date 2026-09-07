@@ -1,2 +1,0 @@
-selected_feature_set,selected_model,selection_group_cv_r2,train_rows,test_rows,r2,mae_mpa,rmse_mpa
-verified_original,RandomForest_tuned,0.6965802727081701,84,21,0.8680496467041157,3.518333994687546,4.596904367774587
