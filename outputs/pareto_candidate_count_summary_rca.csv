@@ -1,0 +1,7 @@
+Category,Count
+Total unique Pareto candidates,41
+Total measured Pareto candidates,26
+Total OOF predicted Pareto candidates,24
+OOF predicted stable Pareto candidates,10
+Measured stable Pareto candidates,10
+Stable candidates in both measured and OOF predicted,2

@@ -1,0 +1,4 @@
+scenario,predicted_pareto_candidate_count,measured_pareto_candidate_count,total_mixtures
+low,19,17,104
+central,16,19,104
+high,13,18,104

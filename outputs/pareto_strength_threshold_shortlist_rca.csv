@@ -1,0 +1,5 @@
+minimum_oof_predicted_strength_mpa,available,stability,source_row_number,measured_strength_mpa,oof_predicted_strength_mpa,central_co2_proxy_kg_per_m3,recycled_aggregate_fraction,cement,water,natural_fine_aggregate,natural_coarse_aggregate,recycled_fine_aggregate,recycled_coarse_aggregate
+30,True,"stable across low, central, and high scenarios",28,33.1,32.506822507010796,298.273005,0.35104621054841484,300.0,150.0,734.0,657.0,202.45,550.0
+40,True,"stable across low, central, and high scenarios",6,41.2,46.72449021666557,350.46103999999997,0.22085889570552109,350.0,140.0,728.0,1304.0,214.333333333333,361.666666666666
+50,True,"stable across low, central, and high scenarios",60,53.2,51.58361849565038,418.32289533333335,0.46804437320601927,425.0,185.0,696.0,647.0,199.646666666666,982.0
+60,True,"stable across low, central, and high scenarios",74,62.1,68.64258607780486,433.8111896666667,0.49170662544180793,440.0,155.0,666.0,670.0,198.403333333333,1094.0
