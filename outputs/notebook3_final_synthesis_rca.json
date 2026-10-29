@@ -1,0 +1,88 @@
+{
+  "dataset_rows_raw": 112,
+  "documented_corrections_applied": 0,
+  "rows_removed": {
+    "missing_nonnumeric_or_impossible": 0,
+    "physically_implausible": 0,
+    "exact_duplicates": 7
+  },
+  "flagged_rows_excluded": 0,
+  "cleaned_rows_modeled": 104,
+  "aggregate_ratio_consistency_rate": 0.16346153846153846,
+  "selected_feature_set": "full_engineered",
+  "selected_features": [
+    "water_cement_ratio",
+    "water",
+    "aggregate_cement_ratio",
+    "cement",
+    "natural_fine_aggregate",
+    "natural_coarse_aggregate",
+    "recycled_coarse_aggregate",
+    "recycled_fine_aggregate"
+  ],
+  "selected_model": "RandomForest_tuned",
+  "primary_holdout_metrics": {
+    "r2": 0.6749767764612713,
+    "mae_mpa": 4.462595226648333,
+    "rmse_mpa": 6.945269232037487
+  },
+  "nested_grouped_oof_metrics": {
+    "r2": 0.7674248296065687,
+    "mae_mpa": 4.569306030282453,
+    "rmse_mpa": 5.972010520177233
+  },
+  "repeated_group_validation_median": {
+    "r2": 0.8063238491165755,
+    "mae_mpa": 4.093360708725574,
+    "rmse_mpa": 5.565169050799147
+  },
+  "repeated_group_validation_2_5_to_97_5": {
+    "r2": [
+      0.6449604353177779,
+      0.9042088545290712
+    ],
+    "mae_mpa": [
+      2.5920761005479136,
+      6.642199032050099
+    ],
+    "rmse_mpa": [
+      3.713118644898913,
+      8.781043799492078
+    ]
+  },
+  "repeated_group_validation_iqr": {
+    "r2": [
+      0.739764044154488,
+      0.8552102318861141
+    ],
+    "mae_mpa": [
+      3.871821546939504,
+      4.757950180604086
+    ],
+    "rmse_mpa": [
+      4.87489897458876,
+      6.294219190252316
+    ]
+  },
+  "repeated_group_validation_min_max": {
+    "r2": [
+      0.6239262294499022,
+      0.9283043443508824
+    ],
+    "mae_mpa": [
+      2.32536958398745,
+      7.258885038419696
+    ],
+    "rmse_mpa": [
+      3.1241020974040223,
+      8.932268047613515
+    ]
+  },
+  "high_strength_test_quartile": {
+    "threshold": "Q4 (highest strength)",
+    "count": 5,
+    "mean_absolute_error_mpa": 3.192342115384571
+  },
+  "stable_pareto_candidate_count": 10,
+  "external_validation_available": false
+}
