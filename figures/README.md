@@ -11,7 +11,7 @@
   - The tuned scatterplot graph had the selected model go through hyperparameter tuning before creating the figure.
 - tradeoff_strength_vs_co2_proxy_baseline.png + tradeoff_strength_vs_cost_proxy_baseline.png:
   - These figures provide the estimated CO₂ in kg CO₂e per m^3 of material or cost in USD per m^3 of material based on the predicted concrete compressive strength of concrete using SCMs (supplemental cementitious materials) and different aggregates.
-  - Units are presented in predicted compressive strength in MPa on the y-axis
+  - Units are presented in predicted compressive strength in MPa on the y-axis.
   - Labeled as a proxy analysis due to inconsistent, varying values across features and industries.
 - residual_plot_GradientBoosting_baseline.png + residual_plot_GradientBoosting_tuned_baseline.png
   - This plot shows the residuals at different levels of concrete compressive strength based on the predictions of the gradient boosting model.
@@ -27,15 +27,17 @@
   - Shows a right-skewed distribution of the data, indicating a larger amount of data between 0-40 MPa.
 - correlation_heatmap_baseline.png
   - Demonstrates the exploratory relationships between target and feature columns in the dataset.
-  - Shows a positive correlation between cement, age, and superplasticizer, and a weaker or negative correlation with water, fly ash, and aggregates with concrete compressive strength
+  - Shows a positive correlation between cement, age, and superplasticizer, and a weaker or negative correlation with water, fly ash, and aggregates with concrete compressive strength.
  
 <ins>RCA Figures<ins>
-- sample
-  - sample
-- sample
+- correlation_heatmap_rca.png
+  - Demonstrates the exploratory relationships between target and feature columns in the dataset.
+  - Indicates a positive correlation between cement and compressive strength, but a negative correlation between compressive strength and water-cement ratio.
+- feature_importance_RandomForest_tuned_rca.png
+  - 
 
 
- **Figure Analysis** -> This section will go more in depth about the contents of each figure, specifically, any relationships, outliers, and behaviors the figure may contain. Please refer to the tuned figures from 02_cv_tuning_and_outputs.ipynb as the authoritative source for final model performance.
+ **Figure Analysis** -> This section will go more in depth about the contents of different figure types. The goal is to address similarities and differences across the baseline and RCA notebooks. Specifically, any relationships, outliers, and behaviors the figure may contain are discussed in the context of the notebook. Please refer to the tuned figures in 02_cv_tuning_and_outputs.ipynb and the validation results in 03_rca_dataset_modeling_and_pareto_analysis.ipynb as the authoritative source for final model performance.
 
 <ins>feature_importance_GradientBoosting_baseline.png + feature_importance_GradientBoosting_tuned_baseline.png<ins>
 
