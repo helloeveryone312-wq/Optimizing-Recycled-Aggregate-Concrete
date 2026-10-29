@@ -55,25 +55,25 @@ It's important to note that gradient boosting and random forest models are limit
 
 03_rca_dataset_modeling_and_pareto_analysis.ipynb Tuned Primary Hold-Out RCA Results: Random forest was selected for permutation importance because it achieved the highest training-only grouped cross-validation R². Primary hold-out metrics from the held-out test set are also reported for the selected model, as seen below:
 
-<u>Training-only grouped cross-validation<u>
+<ins>Training-only grouped cross-validation<ins>
 - Linear Regression: Group CV R² = 0.462
 - Random Forest tuned: Group CV R² = 0.696
 - Gradient Boosting tuned: Group CV R² = 0.673
 
-<u>Primary hold-out metrics for tuned Random Forest<u>
+<ins>Primary hold-out metrics for tuned Random Forest<ins>
 - R² = 0.675
 - MAE = 4.463 MPa
 - RMSE = 6.945 MPa
 
 03_rca_dataset_modeling_and_pareto_analysis.ipynb Repeated Nested Grouped Validation Results: Tuned gradient boosting was defined as the most frequently selected model across 30 repeated splits, with the repeated-validation median metrics being reported for that model. Additional information on number of selections and metrics is listed below:
 
-<u>Number of selection<u>
+<ins>Number of selection<ins>
 - GradientBoosting_tuned = 17 times
 - RandomForest_tuned = 3 times
 - GradientBoosting_untuned = 6 times
 - RandomForest_untuned = 4 times
 
-<u>Tuned Gradient Boosting repeated-validation median metrics<u>
+<ins>Tuned Gradient Boosting repeated-validation median metrics<ins>
 - R² = 0.806
 - MAE = 4.093 MPa
 - RMSE = 5.565 MPa
@@ -95,19 +95,19 @@ Future studies can utilize the notebooks and results of this study to guide real
 
 **Notebook Map** -> The notebooks and their specific function/purpose in this study will be listed in this section of the README. Additional information on how to run these notebooks is provided in the next section.
 
-<u>01_baseline_strength_model.ipynb<u>
+<ins>01_baseline_strength_model.ipynb<ins>
 - Acts as an exploratory, baseline notebook with exploratory data analysis (EDA).
 - Contains initial untuned models, residuals, and tradeoff plots.
 - Includes cross-validation with training and test data
 
-<u>02_cv_tuning_and_outputs.ipynb<u>
+<ins>02_cv_tuning_and_outputs.ipynb<ins>
 - Acts as the final baseline modeling notebook.
 - Uses grouped cross-validation and hyperparameter tuning to train the best model.
   - This only occurs in the training set, not the test set (80-20 train-test split).
 - Saves tuned figures and CSV outputs for publication usage; refer to this notebook for the final baseline results.
 - Includes sustainability proxy analysis and Pareto exploration with a list of Pareto-optimal mixtures
 
-<u>03_rca_dataset_modeling.ipynb<u>
+<ins>03_rca_dataset_modeling.ipynb<ins>
 - Acts as the primary RCA analysis notebook.
 - Uses grouped cross-validation and hyperparameter tuning to train the best model.
   - This only occurs in the training set, not the test set (80-20 train-test split).
@@ -118,14 +118,14 @@ Future studies can utilize the notebooks and results of this study to guide real
 
 **How to run models:**
 
-<u>01_baseline_strength_model.ipynb<u>
+<ins>01_baseline_strength_model.ipynb<ins>
 1. Open 01_baseline_strength_model.ipynb and run the setup code to install dependencies.
 2. Set RUN_MODE to either repo or drive, depending on the dataset location in step 1. If RUN_MODE = repo, upload necessary data files in the "data" folder.
     - Refer to comments for clarity within the notebook.
 3. Continue running the notebook in sequence and read the comments for clarification.
 4. (Optional) Edit the RF (random forest) parameters, then rerun the notebook to optimize the figure and results.
 
-<u>02_cv_tuning_and_outputs.ipynb<u>
+<ins>02_cv_tuning_and_outputs.ipynb<ins>
 1. Open 02_cv_tuning_and_outputs.ipynb and install dependencies.
 2. Set RUN_MODE to either repo or drive, depending on the dataset location in step 1. If RUN_MODE = repo, upload necessary data files in the "data" folder.
 3. Continue running the notebook in sequence and read the comments for clarification.
@@ -134,7 +134,7 @@ Future studies can utilize the notebooks and results of this study to guide real
     - Refer to comments for units
 5. (Optional) Edit the GBR (gradient boosting regressor) or RF parameters, then rerun the notebook to optimize the figure and results.
 
-<u>03_rca_dataset_modeling_and_pareto_analysis.ipynb<u>
+<ins>03_rca_dataset_modeling_and_pareto_analysis.ipynb<ins>
 1. Open 03_rca_dataset_modeling_and_pareto_analysis.ipynb and install dependencies.
 2. Set RUN_MODE to either repo or drive, depending on the dataset location in step 1. If RUN_MODE = repo, upload necessary data files in the "data" folder.
 3. Continue running the notebook in sequence and read the comments for clarification. Upload dataset corrections if necessary.
