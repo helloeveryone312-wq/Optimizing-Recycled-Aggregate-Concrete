@@ -6,7 +6,9 @@
 
 Note that permutation importance is model-specific and data-specific and should not be treated as a universal ranking. Also, refer to the outputs from 02_cv_tuning_and_outputs.ipynb as the authoritative source for final model performance.
 
-**Output Descriptions** -> This section covers each output and a short description of what each contains.
+**Output Descriptions** -> This section covers each output and a short description of what each contains. Baseline and RCA outputs are separated for the sake of clarity.
+
+*Baseline:*
 
 <ins>baseline_model_comparison_cv_baseline.csv<ins>
 
@@ -27,3 +29,7 @@ This contains 26 different Pareto-optimal mixtures based on the tradeoff proxy a
 <ins>sustainability_results_baseline.csv<ins>
 
 The CSV contains the original UCI dataset and adds two additional columns, being "co2_proxy_kg_per_m3" and "cost_proxy_usd_per_m3." These values are used to make the figures for proxy analysis and determine Pareto-optimal mixtures. For better visualization, refer to the tradeoff proxy figures in the present repo.
+
+*RCA:*
+
+
