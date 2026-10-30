@@ -1,4 +1,4 @@
-**Important Definitions** -> Please read this section for clarification on important terms covered in this readme:
+**Important Definitions** -> Please read this section for clarification on important terms covered in this README:
 - CV: cross-validation
 - R²: coefficient of determination
 - MAE: mean absolute error in MPa
@@ -6,7 +6,7 @@
 
 Note that permutation importance is model-specific and data-specific and should not be treated as a universal ranking. Also, refer to the outputs from 02_cv_tuning_and_outputs.ipynb as the authoritative source for final model performance.
 
-**Output Descriptions** -> This section covers each output and a short description of what each contains. Baseline and RCA outputs are separated for the sake of clarity.
+**Output Descriptions** -> This section covers each output and a short description of what each contains. Baseline and RCA outputs are separated for the sake of clarity. Additionally, some RCA outputs present in the repo are excluded due to being self-explanatory and to create a more concise list of key outputs that are significant to the study. For example, rca_flagged_rows_for_manual_review.csv is a list of flagged rows from the dataset that are subject to manual review.
 
 *Baseline:*
 
@@ -32,4 +32,32 @@ The CSV contains the original UCI dataset and adds two additional columns, being
 
 *RCA:*
 
+<ins>____<ins>
 
+<ins>____<ins>
+
+<ins>____<ins>
+
+<ins>____<ins>
+
+<ins>____<ins>
+
+<ins>____<ins>
+
+<ins>____<ins>
+
+<ins>____<ins>
+
+<ins>____<ins>
+
+<ins>____<ins>
+
+<ins>____<ins>
+
+<ins>____<ins>
+
+<ins>____<ins>
+
+<ins>____<ins>
+
+<ins>____<ins>
