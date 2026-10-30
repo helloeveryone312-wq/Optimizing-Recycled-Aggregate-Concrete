@@ -139,5 +139,3 @@ The figure plots stable Pareto candidates based on measured and OOF-predicted co
 <ins>stable_pareto_residual_plot_rca.png<ins>
 
 The predicted and measured frontiers share two stable candidates, while most stable candidates differ between the two frontiers. Additionally, the residual plot serves only as a descriptive visualization of overlapping stable Pareto candidates. Therefore, model-based Pareto candidate identification should be treated as exploratory rather than as a direct reproduction of the measured frontier.
-
-Author's Note: age, cement, water, and blast furnace slag are the strongest features in the **current** baseline model, but are subject to change.
