@@ -1,6 +1,7 @@
-**Data Transparency** -> The data is from UC Irvine's Machine Learning Repository. The download links are as follows:
-- https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength (directly from the archive)
-- https://www.kaggle.com/datasets/elikplim/concrete-compressive-strength-data-set/data (Kaggle download by Ahiale Darlington, stored in REPO)
+**Data Transparency** -> The data is from UC Irvine's Machine Learning Repository for the baseline dataset and Mendeley Data Repository for the RCA dataset. The download links are as follows:
+- https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength (Baseline dataset from archive)
+- https://www.kaggle.com/datasets/elikplim/concrete-compressive-strength-data-set/data (Kaggle download by Ahiale Darlington for baseline dataset, stored in REPO)
+- https://data.mendeley.com/datasets/2pxdbh6vx7/1 (RCA dataset from archive)
 
 **Dataset Description** -> This section will describe all the details regarding the dataset used.
 
