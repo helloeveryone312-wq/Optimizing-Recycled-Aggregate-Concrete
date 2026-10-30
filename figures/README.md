@@ -29,38 +29,46 @@
   - Units are presented in predicted compressive strength in MPa on the y-axis.
  
 <ins>RCA Figures<ins>
-- 
-  - 
+- target_distribution_rca.png
+  - Shows the distribution of mixture compressive strength in the RCA dataset.
+  - Indicates heavy clustering between 30-50 MPa.
+- recycled_aggregate_fraction_distribution_rca.png
+  - Shows the distribution of recycled aggregate fraction in the RCA dataset.
+  - Demonstrates a greater number of mixtures with a recycled aggregate fraction of 0.2 or 0.4-0.5, with fewer mixtures present at a higher recycled aggregate content.
+- strength_vs_recycled_fraction_rca.png
+  - Shows the concrete compressive strength as a function of the proportion of recycled aggregate to natural aggregate present within a mixture using a scatterplot.
+  - High frequency of mixtures between 30-50 MPa and 0.4-0.5 recycled aggregate fraction.
+  - Low frequency of mixtures in 60-80 MPa and 0-0.4 recycled aggregate fraction.
 - correlation_heatmap_rca.png
   - Demonstrates the exploratory relationships between target and feature columns in the dataset.
   - Indicates a positive correlation between cement and compressive strength, but a negative correlation between compressive strength and water-cement ratio.
+- pred_vs_actual_RandomForest_tuned_rca.png
+  - Plots the predicted value of compressive strength by the primary hold-out model against the actual compressive strength of the mixture using a scatterplot.
+  - Shows moderately accurate predictions regarding medium-strength mixtures, with larger errors at higher and lower strength mixtures.
+- residual_plot_RandomForest_tuned_rca.png
+  - Represents calculated residual values based on the predicted vs. actual compressive strength values of a given mixture.
+  - Similar to pred_vs_actual_RandomForest_tuned_rca.png, though more detailed conclusions cannot be reached without a larger test set.
 - feature_importance_RandomForest_tuned_rca.png
-  - 
+  - Defines the importance assigned by the selected model to each feature in predicting concrete compressive strength.
+  - Based on the primary hold-out model and reports water-cement ratio and water content to be the strongest predictive variables within the fitted model.
+- repeated_group_validation_r2_rca.png
+  - Shows a boxplot of the R^2 values across 30 repeated splits.
+  - Reports a 5-number summary of 0.624, 0.740, 0.806, 0.855, 0.928.
+- repeated_group_validation_mae_rca.png
+  - Shows a boxplot of the MAE values across 30 repeated splits.
+  - Reports a 5-number summary of 2.325, 3.872, 4.093, 4.758, 7.259.
+- measured_vs_predicted_stable_pareto_frontiers_rca.png
+  - Shows cleaned observed mixtures and highlights Pareto candidates across two frontiers: measured and out-of-fold predicted compressive strength.
+  - Indicates a difference between model-based candidate selection and using measured strength of the mixture.
+  - Demonstrates a limited overlap between stable candidate sets.
+- stable_pareto_residual_plot_rca.png
+  - Shows overlapping candidates from both measured and out-of-fold frontiers.
+  - Demonstrates that model-based Pareto candidate identification should be treated as exploratory due to limited overlap.
 
 
  **Figure Analysis** -> This section will go more in depth about the contents of figures in the present repo. Specifically, any relationships, outliers, and behaviors the figure may contain are discussed in the context of the notebook. The figures will be split between baseline and RCA-related figures. Please refer to the tuned figures in 02_cv_tuning_and_outputs.ipynb and the validation results in 03_rca_dataset_modeling_and_pareto_analysis.ipynb as the authoritative source for final model performance.
 
 *Baseline:*
-
-<ins>feature_importance_GradientBoosting_baseline.png + feature_importance_GradientBoosting_tuned_baseline.png<ins>
-
-The model depends on age, cement, and blast furnace slag when predicting concrete compressive strength. This does not indicate direct physical causation, just the model's dependence when making predictions. However, even though this graph matches real-world observations to an extent, it's also important to note that low-importance variables, such as fly ash, do not reflect their significance in practical applications. Additionally, correlated variables can distort the permutation importance values.
-
-<ins>pred_vs_actual_GradientBoosting_baseline.png + pred_vs_actual_GradientBoosting_tuned_baseline.png<ins>
-
-The figure shows that the Gradient Boosting model has a high predictive accuracy, with the plotted points following the diagonal line. As the actual strength increases, outliers become more prevalent on the graph. However, this may be due to a lack of points in the CSV with higher concrete compressive strength values, and the graph may appear different for another dataset.
-
-<ins>tradeoff_strength_vs_co2_proxy.png + tradeoff_strength_vs_cost_proxy.png<ins>
-
-Both figures are considered a proxy analysis due to the inconsistent values of cost and CO₂. The study attempts to find relevant values close to the present day, but a mismatch will almost always persist. Although a positive relationship exists between increasing cost/CO₂ and increasing concrete compressive strength, it is clear that a non-linear relationship exists between cost/CO₂ and predicted strength. This indicates that there are many different mixtures to optimize either factor based on the chosen features.
-
-<ins>residual_plot_GradientBoosting_baseline.png + residual_plot_GradientBoosting_tuned_baseline.png<ins>
-
-Model accuracy is shown to be accurate, with most predicted values hovering within 5 MPa of the actual value. The model seems to underpredict at a lesser magnitude more frequently; however, it also overpredicts more often at a higher magnitude greater than 5 MPa of the actual value. A different spread of data may change the current results, but the residuals lie in an acceptable range for the model's overall accuracy.
-
-<ins>pareto_candidates_baseline.png + pareto_candidates_cost_baseline.png<ins>
-
-The graph demonstrates that there is an upper limit to the compressive strength of a concrete mixture as CO₂ increases. However, mixtures generally need to reach higher CO₂ levels before increasing in strength, matching previous graphs that highlighted cement as an important feature (for example, notice how the level of cement increases as predicted strength increases). Future development of the project will involve inputting values with a more accurate proxy analysis.
 
 <ins>target_distribution_baseline.png<ins>
 
@@ -69,5 +77,67 @@ The target distribution graph shows a few peaks around 20-40 MPa, but generally 
 <ins>correlation_heatmap_baseline.png<ins>
 
 The purpose of this graph is to analyze the exploratory relationships between variables in the UCI dataset. The heatmap demonstrates that age, cement, and superplasticizer have a positive correlation with concrete compressive strength, showing they're useful when making concrete compressive strength predictions. Other features seem to have a lesser or negative correlation, indicating that these features are less useful in making strength predictions. However, it only provides exploratory context for the present data and should not be interpreted as causal evidence or as a replacement for model-based feature importance.
+
+<ins>pred_vs_actual_GradientBoosting_baseline.png + pred_vs_actual_GradientBoosting_tuned_baseline.png<ins>
+
+The figure shows that the Gradient Boosting model has a high predictive accuracy, with the plotted points following the diagonal line. As the actual strength increases, outliers become more prevalent on the graph. However, this may be due to a lack of points in the CSV with higher concrete compressive strength values, and the graph may appear different for another dataset.
+
+<ins>residual_plot_GradientBoosting_baseline.png + residual_plot_GradientBoosting_tuned_baseline.png<ins>
+
+Model accuracy is shown to be accurate, with most predicted values hovering within 5 MPa of the actual value. The model seems to underpredict at a lesser magnitude more frequently; however, it also overpredicts more often at a higher magnitude greater than 5 MPa of the actual value. A different spread of data may change the current results, but the residuals lie in an acceptable range for the model's overall accuracy.
+
+<ins>feature_importance_GradientBoosting_baseline.png + feature_importance_GradientBoosting_tuned_baseline.png<ins>
+
+The model depends on age, cement, and blast furnace slag when predicting concrete compressive strength. This does not indicate direct physical causation, just the model's dependence when making predictions. However, even though this graph matches real-world observations to an extent, it's also important to note that low-importance variables, such as fly ash, do not reflect their significance in practical applications. Additionally, correlated variables can distort the permutation importance values.
+
+<ins>tradeoff_strength_vs_co2_proxy.png + tradeoff_strength_vs_cost_proxy.png<ins>
+
+Both figures are considered a proxy analysis due to the inconsistent values of cost and CO₂. The study attempts to find relevant values close to the present day, but a mismatch will almost always persist. Although a positive relationship exists between increasing cost/CO₂ and increasing concrete compressive strength, it is clear that a non-linear relationship exists between cost/CO₂ and predicted strength. This indicates that there are many different mixtures to optimize either factor based on the chosen features.
+
+<ins>pareto_candidates_baseline.png + pareto_candidates_cost_baseline.png<ins>
+
+The graph demonstrates that there is an upper limit to the compressive strength of a concrete mixture as CO₂ increases. However, mixtures generally need to reach higher CO₂ levels before increasing in strength, matching previous graphs that highlighted cement as an important feature (for example, notice how the level of cement increases as predicted strength increases). Future development of the project will involve inputting values with a more accurate proxy analysis.
+
+*RCA:*
+
+<ins>target_distribution_rca.png<ins>
+
+The target distribution graph shows a heavy amount of clustering between 30-50 MPa. This communicates that model predictions within these compressive strength ranges should be interpreted more carefully. Adding a higher number of mixtures in the dataset for low- and high-strength mixtures may reduce uncertainty, but error analysis should still be performed to verify model performance.
+
+<ins>recycled_aggregate_fraction_distribution_rca.png<ins>
+
+Mixtures with 40-50% recycled aggregate replacement seem to be the most prevalent, alongside a noticeable spike near 20% recycled aggregate replacement. This communicates that the trained models may have less error within these recycled aggregate ranges due to the larger sample size relative to other ranges. It also demonstrates that mixtures with a high recycled aggregate content should be interpreted with caution, as the models have minimal training data.
+
+<ins>strength_vs_recycled_fraction_rca.png<ins>
+
+The scatterplot shows a similar result to the recycled aggregate and target distribution histograms, with a high frequency of mixtures between 30-50 MPa and 40-50% recycled aggregate replacement. Sparsely represented ranges, such as between 60-80 MPa and 0-40% recycled aggregate replacement, indicate areas that require more cautious interpretation.
+
+<ins>correlation_heatmap_rca.png<ins>
+
+The purpose of this graph is to analyze the exploratory relationships between variables in the present dataset. Notable relationships include the positive correlation between cement and compressive strength, which is present in the UCI dataset in previous notebooks. A negative correlation can be seen between compressive strength and water-cement ratio, indicating its importance in predicting concrete compressive strength. However, it only provides exploratory context for the present data and should not be interpreted as causal evidence or as a replacement for model-based feature importance.
+
+<ins>pred_vs_actual_RandomForest_tuned_rca.png<ins>
+
+Most predictions follow the one-to-one line, but larger errors at lower- and higher-strength mixtures. This is consistent with the target and recycled aggregate distribution histograms, as less data exists at those ranges to train the models.
+
+<ins>residual_plot_RandomForest_tuned_rca.png<ins>
+
+The figure shows a large range for the residual values. Significant overpredictions and underpredictions exist at low and high predicted compressive strengths. More detailed conclusions cannot be reached due to the small test set.
+
+<ins>feature_importance_RandomForest_tuned_rca.png<ins>
+
+The water-cement ratio and water content of the mixtures are the strongest predictive variables within this fitted model. However, it is also important to note that the permutation importance is calculated on a small held-out test set of 21 observations. This means that this importance is exploratory/model-specific, and should not be considered direct physical or causal effects. Other features seem to be significantly less important in model predictions based on the permutation importance, the most notable of which are fine aggregates and aggregate-cement ratio.
+
+<ins>repeated_group_validation_r2_rca.png + repeated_group_validation_mae_rca.png<ins>
+
+The results represented in these graphs are significant, as they differ from the hyperparameter tuning and model selection process in Section 10. Specifically, the primary hold-out result is not representative of every split. Additionally, the repeated-validation metrics act as a quantifiable measure of robustness outside of training data.
+
+<ins>measured_vs_predicted_stable_pareto_frontiers_rca.png<ins>
+
+The figure plots stable Pareto candidates based on measured and OOF-predicted compressive strength. Notably, limited overlap between stable candidate sets across both frontiers indicates that model-based candidate identification remains exploratory. Additionally, measured and predicted frontiers overlap for some candidate mixtures but diverge for others, indicating that model-based candidate selection is not identical to selection using measured strength.
+
+<ins>stable_pareto_residual_plot_rca.png<ins>
+
+The predicted and measured frontiers share two stable candidates, while most stable candidates differ between the two frontiers. Additionally, the residual plot serves only as a descriptive visualization of overlapping stable Pareto candidates. Therefore, model-based Pareto candidate identification should be treated as exploratory rather than as a direct reproduction of the measured frontier.
 
 Author's Note: age, cement, water, and blast furnace slag are the strongest features in the **current** baseline model, but are subject to change.
