@@ -72,7 +72,7 @@
 
 <ins>target_distribution_baseline.png<ins>
 
-The target distribution graph shows a few peaks around 20-40 MPa, but generally follows a right-skewed distribution. This means that the machine-learning models trained from this data will most likely be more accurate for concrete compressive strength between 0 and 40 MPa. Note that this graph does not automatically assume that the target follows a normal distribution.
+The baseline target distribution graph shows a few peaks around 20-40 MPa, but generally follows a right-skewed distribution. As a result, concrete compressive strength ranges between 10 and 40 MPa are densely represented, while compressive strength values outside of those ranges should be more cautiously interpreted in Stage 1 due to sparse representation.
 
 <ins>correlation_heatmap_baseline.png<ins>
 
@@ -80,11 +80,11 @@ The purpose of this graph is to analyze the exploratory relationships between va
 
 <ins>pred_vs_actual_GradientBoosting_baseline.png + pred_vs_actual_GradientBoosting_tuned_baseline.png<ins>
 
-The figure shows that the Gradient Boosting model has a high predictive accuracy, with the plotted points following the diagonal line. As the actual strength increases, outliers become more prevalent on the graph. However, this may be due to a lack of points in the CSV with higher concrete compressive strength values, and the graph may appear different for another dataset.
+The figures exhibit moderate clustering around the plotted line, indicating an acceptable predictive performance for gradient boosting on the baseline dataset. Specifically, this conclusion should only apply up to a concrete compressive strength of 40 MPa, as the graph demonstrates a noticeably higher predictive error with fewer data points at higher compressive strengths.
 
 <ins>residual_plot_GradientBoosting_baseline.png + residual_plot_GradientBoosting_tuned_baseline.png<ins>
 
-Model accuracy is shown to be accurate, with most predicted values hovering within 5 MPa of the actual value. The model seems to underpredict at a lesser magnitude more frequently; however, it also overpredicts more often at a higher magnitude greater than 5 MPa of the actual value. A different spread of data may change the current results, but the residuals lie in an acceptable range for the model's overall accuracy.
+Model accuracy is shown to be accurate, with a moderate amount of predictive variance and a tighter residual spread up to a compressive strength of 40 MPa. The model seems to underpredict at a lesser magnitude more frequently; however, it also overpredicts more often at a higher magnitude. A different spread of data may change the current results, but the residuals lie in an acceptable range for the model's overall accuracy.
 
 <ins>feature_importance_GradientBoosting_baseline.png + feature_importance_GradientBoosting_tuned_baseline.png<ins>
 
@@ -96,7 +96,7 @@ Both figures are considered a proxy analysis due to the inconsistent values of c
 
 <ins>pareto_candidates_baseline.png + pareto_candidates_cost_baseline.png<ins>
 
-The graph demonstrates that there is an upper limit to the compressive strength of a concrete mixture as CO₂ increases. However, mixtures generally need to reach higher CO₂ levels before increasing in strength, matching previous graphs that highlighted cement as an important feature (for example, notice how the level of cement increases as predicted strength increases). Future development of the project will involve inputting values with a more accurate proxy analysis.
+The baseline Pareto analysis demonstrates that there is an observed tradeoff between an increase in a mixture’s CO₂ emissions and its compressive strength. It demonstrates this by highlighting the Pareto candidates with the highest levels of CO₂ also subsequently having the highest level of compressive strength. The Pareto candidates for the cost proxy do not show a similar relationship, with similar compressive strength mixtures existing at different magnitudes of material costs. Although an upward trend between compressive strength and cost exists to some extent, lower-cost mixture alternatives exist around concrete compressive strengths of 40-55 MPa.
 
 *RCA:*
 
@@ -126,7 +126,7 @@ The figure shows a large range for the residual values. Significant overpredicti
 
 <ins>feature_importance_RandomForest_tuned_rca.png<ins>
 
-The water-cement ratio and water content of the mixtures are the strongest predictive variables within this fitted model. However, it is also important to note that the permutation importance is calculated on a small held-out test set of 21 observations. This means that this importance is exploratory/model-specific, and should not be considered direct physical or causal effects. Other features seem to be significantly less important in model predictions based on the permutation importance, the most notable of which are fine aggregates and aggregate-cement ratio.
+The water-cement ratio and water content of the mixtures are the strongest predictive variables within this fitted model. However, it is also important to note that the permutation importance is calculated on a small held-out test set of 21 observations. This means that this importance is exploratory/model-specific and should not be considered direct physical or causal effects. Other features seem to be significantly less important in model predictions based on the permutation importance, the most notable of which are fine aggregates and aggregate-cement ratio.
 
 <ins>repeated_group_validation_r2_rca.png + repeated_group_validation_mae_rca.png<ins>
 
@@ -134,8 +134,8 @@ The results represented in these graphs are significant, as they differ from the
 
 <ins>measured_vs_predicted_stable_pareto_frontiers_rca.png<ins>
 
-The figure plots stable Pareto candidates based on measured and OOF-predicted compressive strength. Notably, limited overlap between stable candidate sets across both frontiers indicates that model-based candidate identification remains exploratory. Additionally, measured and predicted frontiers overlap for some candidate mixtures but diverge for others, indicating that model-based candidate selection is not identical to selection using measured strength.
+The figure plots stable Pareto candidates based on measured and OOF-predicted compressive strength. Notably, limited overlap between stable candidate sets across both frontiers indicates that model-based candidate identification remains exploratory. Additionally, measured and predicted frontiers overlap for some candidate mixtures but diverge for others, indicating that model-based candidate selection is not identical to selection using measured strength. Therefore, due to the lack of overlap, model-based Pareto candidate identification should be treated as exploratory rather than as a direct reproduction of the measured frontier.
 
 <ins>stable_pareto_residual_plot_rca.png<ins>
 
-The predicted and measured frontiers share two stable candidates, while most stable candidates differ between the two frontiers. Additionally, the residual plot serves only as a descriptive visualization of overlapping stable Pareto candidates. Therefore, model-based Pareto candidate identification should be treated as exploratory rather than as a direct reproduction of the measured frontier.
+The predicted and measured frontiers share two stable candidates, while most stable candidates differ between the two frontiers. Specifically, these overlaps are reported as rows 28 and 58 of the RCA dataset in Section 16 of Notebook 3. Additionally, the residual plot serves only as a descriptive visualization of overlapping stable Pareto candidates. Therefore, model-based Pareto candidate identification should be treated as exploratory rather than as a direct reproduction of the measured frontier.
