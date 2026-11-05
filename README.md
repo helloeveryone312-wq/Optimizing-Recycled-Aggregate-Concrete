@@ -6,8 +6,8 @@
 
 **Current Project Stage** -> This section will explain the current and future stages of the study to provide insight into how it will develop.
 
-- Current stage: finishing RCA Notebook 3 and updating relevant information in GitHub.
-- Next stage: identify and integrate RCA-specific figures and outputs.
+- Current stage: finish paper for JHSS submission.
+- Next stage: finish paper for JHSS submission.
 - Final stage: finish paper for JHSS submission.
 
 
@@ -24,15 +24,19 @@
   - Units are dimensionless for w/c and a/c, kg/m^3 for all other input features, and MPA for all target values.
 
 
-**Modeling Approach** -> The notebooks clean up the given dataset and use a train-test split and cross-validation to measure the accuracy and reliability of the model. Linear regression is used as a baseline model for comparison against more flexible tree-based methods. More information is available in the notebook comments. A total of three models are analyzed:
+**Modeling Approach** -> The notebooks clean up the given dataset and use a train-test split and cross-validation to measure the accuracy and reliability of the model. Linear regression is used as a baseline model for comparison against more flexible tree-based methods. More information is available in the notebook comments or the technical note. A total of three models are analyzed:
 
 - Linear regression, a linear regression model used for a baseline.
 - Random forest, an ensemble bagging model that averages many decision trees.
 - Gradient boosting, an ensemble boosting model that builds trees sequentially to correct previous errors.
 
-One of the three models is selected based on the R^2 value. Before this, outliers in the datasets are filtered, and correlations are computed between variables. Finally, the selected model will use both the correlations and the data to determine mixtures that optimize concrete compressive strength. Sustainability proxies are also used to consider environmental and economic trade-offs. A Pareto-optimal mixture is displayed to indicate the mixture.
+Before model selection, both the baseline and RCA datasets are normalized and checked for improper characters. Afterwards, missing, negative, or non-numeric values were checked for before splitting the dataset. The split datasets are then used to train the machine learning models, with a random_state variable set at the start of the code to ensure reproducibility. The RCA dataset takes a more detailed approach in addition to the preprocessing checklist. It checks for plausible feature value ranges, then has code to apply corrections where needed. If values outside of the expected range exist, they are removed and flagged for manual review until the necessary corrections are applied, in which case the corrections are displayed in Section 4 of 03_rca_dataset_modeling_and_pareto_analysis.ipynb. 
 
-It's important to note that gradient boosting and random forest models are limited by their inability to extrapolate, and linear regression has trouble fitting the multivariable, non-linear data used in this study. Depending on the model's configurations, they can prove to be computationally expensive as well. More information can be found in docs/model_explanations.md in the present README. Additionally, 01_baseline_strength_model.ipynb contains untuned gradient boosting and random forest models, while 02_cv_tuning_and_outputs.ipynb conducts hyperparameter tuning for the final figures and outputs.
+The cleaned datasets from each Notebook are then used to calculate values, such as CO₂ emissions and costs for sustainability proxies to consider environmental and economic trade-offs. A Pareto-optimal mixture is displayed to indicate the mixture. Again, model selection processes specific to certain notebooks can be found in the notebook comments or the technical note in sections "2.1 Study design" and "2.6 Model evaluation."
+
+Model performance was evaluated using the coefficient of determination (R-squared) and analyzed through root mean squared error (RMSE) and mean absolute error (MAE). R-squared measures the proportion of variance in compressive strength explained by the model. This acts as a measure of predictive performance, as it quantifies the regression model’s ability to account for variance in compressive strength using the feature composition of a given mixture. However, this does not indicate that the model is free of bias and is only representative of the specific dataset it was trained on. MAE measures the average absolute prediction error in MPa, treating each error similarly. RMSE is integrated into 02_cv_tuning_and_outputs.ipynb and 03_rca_dataset_modeling_and_pareto_analysis.ipynb as a way to place a greater weight on larger prediction errors.
+
+It's important to note that gradient boosting and random forest models are limited by their inability to extrapolate, and linear regression has trouble fitting the multivariable, non-linear data used in this study. Depending on the model's configurations, they can prove to be computationally expensive as well. More information can be found in docs/model_explanations.md in the present README. Additionally, 01_baseline_strength_model.ipynb contains untuned gradient boosting and random forest models, while 02_cv_tuning_and_outputs.ipynb conducts hyperparameter tuning for the final figures and outputs. 03_rca_dataset_modeling_and_pareto_analysis.ipynb includes both tuned and untuned models across multiple model selection processes.
 
 
 **Figure Overview** -> Due to the number of figures across all three code notebooks, a more detailed summary is included in the "figures" folder of this repository.
