@@ -55,7 +55,7 @@ Please note that the R^2 value reported is not a universal model performance val
 
 <ins>error_by_recycled_fraction_rca.csv + error_by_strength_band_rca.csv<ins>
 
-A subgroup error analysis demonstrates the absolute error of the tuned random forest model selected from grouped cross-validation of the training set. The analysis evaluates the held-out test set predictions and records the mean, median, and maximum absolute error, alongside the number of mixtures in a specific subgroup. The test set is first categorized into recycled fraction ranges and then compressive strength bands (quartiles). Higher absolute error values suggest a greater observed error on specific splits, such as on the (0.493, 0.647] recycled aggregate fraction range and Q1 for compressive strength bands, yielding a MAE greater than 7 MPa. However, the small subgroup count prevents broader generalizations of the observed results.
+A subgroup error analysis demonstrates the absolute error of the tuned random forest model selected from grouped cross-validation of the training set. The analysis evaluates the held-out test set predictions and records the mean, median, and maximum absolute error, alongside the number of mixtures in a specific subgroup. The test set is first categorized into recycled fraction ranges and then compressive strength bands (quartiles). Higher absolute error values suggest a greater observed error on specific splits, such as on the (0.493, 0.647] recycled aggregate fraction range and Q1 for compressive strength bands, yielding a MAE of 7.36 MPa and 7.46 MPa, respectively. However, the small subgroup count prevents broader generalizations of the observed results.
 
 <ins>rca_nested_grouped_oof_predictions_rca.csv<ins>
 
@@ -68,5 +68,3 @@ A list of observed emissions values, categorized into low, central, and high sce
 <ins>predicted_stable_pareto_candidates_rca.csv + measured_stable_pareto_candidates_rca.csv<ins>
 
 Despite having accompanying figures, similar to permutation_importance_RandomForest_tuned_rca.csv, an important limitation must be mentioned regarding mixture quantities. Each mixture contains an unusually high combined aggregate mass per cubic metre for conventional normal-weight concrete. An exact specification for how to interpret the four aggregate types is not present in the paper methodology section from which the dataset is used (https://doi.org/10.1038/s41598-026-42598-6). Thus, the reported aggregate contents for mixtures are retained without assuming they are erroneous, as the value is still physically plausible; however, this should be listed as a limitation to maintain research transparency.
-
-<ins>____<ins>
