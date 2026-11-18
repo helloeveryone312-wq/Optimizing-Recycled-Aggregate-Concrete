@@ -35,9 +35,9 @@
 
 **Sustainability Factors Description** -> One CSV is created in 02_cv_tuning_and_outputs.ipynb, where literature values and relevant information are stored and exported as a CSV by the notebook to conduct Pareto exploration. Each cost and emission factor for the features, alongside the relevance, source, and geography, is listed within the CSV. Three main sources exist:
 
-- Mixture Optimization of Sustainable Concrete with Silica Fume Considering CO2 Emissions and Cost (Wang et al.)
-- A Comprehensive Review on the Ground Granulated Blast Furnace Slag (GGBS) in Concrete Production (Ahmad et al.)
-- Optimizing calcium efficiency for sustainable cement with GGBFS-fly ash systems (Wattanachai et al.)
+- Wang, Y.-S., Cho, H.-K., & Wang, X.-Y. (2022). Mixture Optimization of Sustainable Concrete with Silica Fume Considering CO₂ Emissions and Cost. Buildings, 12, 1580. https://doi.org/10.3390/buildings12101580
+- Ahmad, J., Kontoleon, K. J., Majdi, A., Naqash, M. T., Deifalla, A. F., Ben Kahla, N., Isleem, H. F., & Qaidi, S. M. A. (2022). A Comprehensive Review on the Ground Granulated Blast Furnace Slag (GGBS) in Concrete Production. Sustainability, 14(14), 8783. https://doi.org/10.3390/su14148783
+- Wattanachai, P., Pimraksa, K., Chaiwithee, S., Keereemasthong, T., & Kochchapong, K. (2025). Optimizing Calcium Efficiency for Sustainable Cement with GGBFS-Fly Ash Systems. Scientific Reports, 15, 31352. https://doi.org/10.1038/s41598-025-16959-6
 
 Another CSV is used for 03_rca_dataset_modeling_and_pareto_analysis.ipynb with a much larger range of sources for different emission factor scenarios. Scenario, material, source, emissions value, DOI, original value, conversion method, and geography/context are all included in the CSV. A list of the relevant sources is below:
 
