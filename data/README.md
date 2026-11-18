@@ -38,6 +38,8 @@
 - Wang, Y.-S., Cho, H.-K., & Wang, X.-Y. (2022). Mixture Optimization of Sustainable Concrete with Silica Fume Considering CO₂ Emissions and Cost. Buildings, 12, 1580. https://doi.org/10.3390/buildings12101580
 - Ahmad, J., Kontoleon, K. J., Majdi, A., Naqash, M. T., Deifalla, A. F., Ben Kahla, N., Isleem, H. F., & Qaidi, S. M. A. (2022). A Comprehensive Review on the Ground Granulated Blast Furnace Slag (GGBS) in Concrete Production. Sustainability, 14(14), 8783. https://doi.org/10.3390/su14148783
 - Wattanachai, P., Pimraksa, K., Chaiwithee, S., Keereemasthong, T., & Kochchapong, K. (2025). Optimizing Calcium Efficiency for Sustainable Cement with GGBFS-Fly Ash Systems. Scientific Reports, 15, 31352. https://doi.org/10.1038/s41598-025-16959-6
+- IMARC Group. (2026). Ground granulated blast-furnace slag (GGBFS) prices, trend, chart, demand, market analysis, news, historical and forecast data report 2026 edition (Report No. SR112026A22534). https://www.imarcgroup.com/ground-granulated-blast-furnace-slag-pricing-report
+- IMARC Group. (2026). Fly ash prices, trend, chart, demand, market analysis, news, historical and forecast data report 2026 edition (Report No. SR112026A22714). https://www.imarcgroup.com/fly-ash-pricing-report
 
 Another CSV is used for 03_rca_dataset_modeling_and_pareto_analysis.ipynb with a much larger range of sources for different emission factor scenarios. Scenario, material, source, emissions value, DOI, original value, conversion method, and geography/context are all included in the CSV. A list of the relevant sources is below:
 
