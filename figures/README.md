@@ -92,7 +92,7 @@ The model depends on age, cement, and blast furnace slag when predicting concret
 
 <ins>tradeoff_strength_vs_co2_proxy.png + tradeoff_strength_vs_cost_proxy.png<ins>
 
-Both figures are considered a proxy analysis due to the inconsistent values of cost and CO₂. The study attempts to find relevant values close to the present day, but a mismatch will almost always persist. Although a positive relationship exists between increasing cost/CO₂ and increasing concrete compressive strength, it is clear that a non-linear relationship exists between cost/CO₂ and predicted strength. This indicates that there are many different mixtures to optimize either factor based on the chosen features.
+Both figures are considered a proxy analysis due to the inconsistent values of cost and CO₂. The technical note attempts to find relevant values close to the present day, but a mismatch will almost always persist. Although a positive relationship exists between increasing cost/CO₂ and increasing concrete compressive strength, it is clear that a non-linear relationship exists between cost/CO₂ and predicted strength. This indicates that there are many different mixtures to optimize either factor based on the chosen features.
 
 <ins>pareto_candidates_baseline.png + pareto_candidates_cost_baseline.png<ins>
 
