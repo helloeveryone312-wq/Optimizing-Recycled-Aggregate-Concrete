@@ -1,10 +1,10 @@
 # Machine Learning-Assisted Evaluation of Recycled Aggregate Concrete Compressive Strength and Sustainability Tradeoffs
 # Project Description
 
-**Goals** -> This study aims to optimize the mechanical properties and environmental/economic benefits of concrete through machine learning models. Based on the listed datasets, the machine learning models identify the importance of variables that affect the mechanical properties of concrete, including, but not limited to, varying levels of ground granulated blast-furnace slag, fly ash, age, and cement. By creating these models, future research can be conducted on predicted/new mixtures that have both sufficient compressive strength and environmental/economic benefits for regular use.
+**Goals** -> This technical note aims to optimize the mechanical properties and environmental/economic benefits of concrete through machine learning models. Based on the listed datasets, the machine learning models identify the importance of variables that affect the mechanical properties of concrete, including, but not limited to, varying levels of ground granulated blast-furnace slag, fly ash, age, and cement. By creating these models, future research can be conducted on predicted/new mixtures that have both sufficient compressive strength and environmental/economic benefits for regular use.
 
 
-**Current Project Stage** -> This section will explain the current and future stages of the study to provide insight into how it will develop.
+**Current Project Stage** -> This section will explain the current and future stages of the technical note to provide insight into how it will develop.
 
 - Current stage: finish paper for JHSS submission.
 - Next stage: finish paper for JHSS submission.
@@ -32,11 +32,11 @@
 
 Before model selection, both the baseline and RCA datasets are normalized and checked for improper characters. Afterwards, missing, negative, or non-numeric values were checked for before splitting the dataset. The split datasets are then used to train the machine learning models, with a random_state variable set at the start of the code to ensure reproducibility. The RCA dataset takes a more detailed approach in addition to the preprocessing checklist. It checks for plausible feature value ranges, then has code to apply corrections where needed. If values outside of the expected range exist, they are removed and flagged for manual review until the necessary corrections are applied, in which case the corrections are displayed in Section 4 of 03_rca_dataset_modeling_and_pareto_analysis.ipynb. 
 
-The cleaned datasets from each Notebook are then used to calculate values, such as CO₂ emissions and costs for sustainability proxies to consider environmental and economic trade-offs. A Pareto-optimal mixture is displayed to indicate the mixture. Again, model selection processes specific to certain notebooks can be found in the notebook comments or the technical note in sections "2.1 Study design" and "2.6 Model evaluation."
+The cleaned datasets from each Notebook are then used to calculate values, such as CO₂ emissions and costs for sustainability proxies, to consider environmental and economic trade-offs. A Pareto-optimal mixture is displayed to indicate the mixture. Again, model selection processes specific to certain notebooks can be found in the notebook comments or the technical note in sections "2.1 Study design" and "2.6 Model evaluation."
 
 Model performance was evaluated using the coefficient of determination (R-squared) and analyzed through root mean squared error (RMSE) and mean absolute error (MAE). R-squared measures the proportion of variance in compressive strength explained by the model. This acts as a measure of predictive performance, as it quantifies the regression model’s ability to account for variance in compressive strength using the feature composition of a given mixture. However, this does not indicate that the model is free of bias and is only representative of the specific dataset it was trained on. MAE measures the average absolute prediction error in MPa, treating each error similarly. RMSE is integrated into 02_cv_tuning_and_outputs.ipynb and 03_rca_dataset_modeling_and_pareto_analysis.ipynb as a way to place a greater weight on larger prediction errors.
 
-It's important to note that gradient boosting and random forest models are limited by their inability to extrapolate, and linear regression has trouble fitting the multivariable, non-linear data used in this study. Depending on the model's configurations, they can prove to be computationally expensive as well. More information can be found in docs/model_explanations.md in the present README. Additionally, 01_baseline_strength_model.ipynb contains untuned gradient boosting and random forest models, while 02_cv_tuning_and_outputs.ipynb conducts hyperparameter tuning for the final figures and outputs. 03_rca_dataset_modeling_and_pareto_analysis.ipynb includes both tuned and untuned models across multiple model selection processes.
+It's important to note that gradient boosting and random forest models are limited by their inability to extrapolate, and linear regression has trouble fitting the multivariable, non-linear data used in this technical note. Depending on the model's configurations, they can prove to be computationally expensive as well. More information can be found in docs/model_explanations.md in the present README. Additionally, 01_baseline_strength_model.ipynb contains untuned gradient boosting and random forest models, while 02_cv_tuning_and_outputs.ipynb conducts hyperparameter tuning for the final figures and outputs. 03_rca_dataset_modeling_and_pareto_analysis.ipynb includes both tuned and untuned models across multiple model selection processes.
 
 
 **Figure Overview** -> Due to the number of figures across all three code notebooks, a more detailed summary is included in the "figures" folder of this repository.
@@ -94,10 +94,10 @@ It's important to note that gradient boosting and random forest models are limit
 
 Additionally, it is important to note that the gradient boosting model held a stronger mean cross-validation R² throughout the first and second notebooks, but random forest performed stronger in the third notebook. However, when testing the different regression models on multiple repeated grouped splits, 03_rca_dataset_modeling_and_pareto_analysis.ipynb favored gradient boosting, which was used for nested grouped OOF predictions. Therefore, the gradient boosting model was used for figures in 01_baseline_strength_model.ipynb and 02_cv_tuning_and_outputs.ipynb. For 03_rca_dataset_modeling_and_pareto_analysis.ipynb, the primary hold-out random forest model and the selected gradient boosting model were used in subsequent outputs and figures.
 
-Future studies can utilize the notebooks and results of this study to guide real-world testing and application in construction.
+Future studies can utilize the notebooks and results of this technical note to guide real-world testing and application in construction.
 
 
-**Notebook Map** -> The notebooks and their specific function/purpose in this study will be listed in this section of the README. Additional information on how to run these notebooks is provided in the next section.
+**Notebook Map** -> The notebooks and their specific function/purpose in this technical note will be listed in this section of the README. Additional information on how to run these notebooks is provided in the next section.
 
 <ins>01_baseline_strength_model.ipynb<ins>
 - Acts as an exploratory, baseline notebook with exploratory data analysis (EDA).
@@ -145,5 +145,3 @@ Future studies can utilize the notebooks and results of this study to guide real
 4. Upload sustainability_factor_scenarios.csv to the "data" folder to run sustainability proxy analysis.
 5. Download ZIP files through Google Colab or your local directory after running Section 19 of the code.
 6. (Optional) Edit the GBR (gradient boosting regressor) or RF parameters, then rerun the notebook to optimize the figure and results. N_REPEATED_GROUP_SPLITS may also be increased or decreased based on the runtime limit.
-
-**Author Note:** The next phase of this study will be finalizing RCA figures and outputs in the repository before moving on to writing.
